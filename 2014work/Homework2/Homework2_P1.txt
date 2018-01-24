@@ -1,0 +1,13 @@
+Output:
+This is the beginning of the program!
+Number 1 is 15
+Number 2 is 2938
+The sum is: 
+2953
+Look at this cool trick
+Inside quotes, then a variable, inside quotes, then a variable.
+His name is John and her name is Melinda
+If I'm not careful with spaces around the quotes, look what happens:
+His name isJohnand her name isMelinda
+Once a variable is declared, it can be used anywhere after that.
+The sum is 37

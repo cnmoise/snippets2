@@ -1,0 +1,11 @@
+----jGRASP exec: java SoManyErrors
+
+Being able to find errors in a program is challenging.
+Can you find all of them?
+12 divided by 3 is: 
+4
+10 divided by 2 is: 
+5
+10 divided by 0 is: 
+
+ ----jGRASP: operation complete.

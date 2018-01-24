@@ -1,0 +1,5 @@
+i is 0 and nums[i] is 0
+i is 1 and nums[i] is 4
+i is 2 and nums[i] is 60
+i is 3 and nums[i] is 6
+1 3 3 0 

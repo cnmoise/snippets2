@@ -1,0 +1,8 @@
+ ----jGRASP exec: java FixMyCodeStructure
+
+I hate trying to read
+unformatted Java code.
+Indentation and spacing
+make me so very happy!
+
+ ----jGRASP: operation complete.

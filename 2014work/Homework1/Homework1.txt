@@ -1,0 +1,7 @@
+Line 3, syntax error
+Line 6, syntax error
+Line 8, syntax error
+Line 10, Logic error
+Line 11, Logic error
+Line 12, Runtime error
+Line 13, Syntax error (missing a })

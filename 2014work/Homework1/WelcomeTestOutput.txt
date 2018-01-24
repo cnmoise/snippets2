@@ -1,0 +1,9 @@
+ ----jGRASP exec: java WelcomeTest
+
+Welcome to Programming I
+Welcome to Programming I
+Welcome to Programming I
+Welcome to Programming I
+Welcome to Programming I
+
+ ----jGRASP: operation complete.

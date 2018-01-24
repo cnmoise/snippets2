@@ -1,0 +1,3 @@
+x is 26 , y is: 6 , z is: 4
+x is even
+z is 24
