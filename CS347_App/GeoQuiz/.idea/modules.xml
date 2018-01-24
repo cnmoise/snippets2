@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/GeoQuiz.iml" filepath="$PROJECT_DIR$/GeoQuiz.iml" />
+      <module fileurl="file://C:\Users\Claudiu Moise\Documents\GitHub\snippets\2018work\CS347_App\GeoQuiz\GeoQuiz.iml" filepath="C:\Users\Claudiu Moise\Documents\GitHub\snippets\2018work\CS347_App\GeoQuiz\GeoQuiz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\Claudiu Moise\Documents\GitHub\snippets\2018work\CS347_App\GeoQuiz\app\app.iml" filepath="C:\Users\Claudiu Moise\Documents\GitHub\snippets\2018work\CS347_App\GeoQuiz\app\app.iml" />
+    </modules>
+  </component>
+</project>
