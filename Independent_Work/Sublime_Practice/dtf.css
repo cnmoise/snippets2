@@ -1,0 +1,15 @@
+/*emmet css super shorthand
+
+to improve more look at the documentation
+
+
+ctrl-arrowkeys over numbers incs the number
+alt shift arrowkeys
+*/
+
+.site-header nav a {
+	display: block;
+	text-decoration: none;
+
+	margin-right: 21px;
+}

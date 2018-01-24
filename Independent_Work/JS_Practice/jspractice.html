@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Js practice</title>
+
+	<script type="text/javascript" src="practice.js"> </script>
+
+</head>
+<body>
+	<!-- Following a tutorial
+	https://www.youtube.com/watch?v=fju9ii8YsGs&t=186s -->
+
+
+	<p id="hello"></p>
+
+	
+
+
+
+	<script>
+		
+		// var mood = prompt("How you doin?");
+
+		// if(mood != null){
+
+		// 	document.getElementById("hello").innerHTML = "You are doing " + mood;
+		// }
+		// else{
+		// 	alert("Please enter your mood");
+
+		// }
+
+		// Math operators
+		// write is nice tech
+		document.write("5 + 4 = ", 5+4, "<br/>")
+		document.write("5 - 4 = ", 5-4, "<br/>")
+		document.write("5 * 4 = ", 5*4, "<br/>")
+		document.write("5 / 4 = ", 5/4, "<br/>")
+		document.write("5 % 4 = ", 5%4, "<br/>")
+
+		var randNum = 5;
+		//subtle difference, inc before print, inc after print
+		//document.write("randNum++ =", randNum++, "<br />");
+		//document.write("randNum++ =", ++randNum, "<br />");
+
+		document.write("randNum += =", randNum+=5, "<br />");
+		document.write("randNum -= =", randNum-=5, "<br />");
+		document.write("randNum *= =", randNum*=5, "<br />");
+		document.write("randNum /= =", randNum/=5, "<br />");
+
+		//Math.pi
+
+		//usefull math functions
+		document.write("Math.abs(-8) = ", Math.abs(-8), "<br/>");
+		document.write("Math.cbrt(1000) = ", Math.cbrt(1000), "<br/>");
+		document.write("Math.ceil(6.45) = ", Math.ceil(6.45), "<br/>");
+		document.write("Math.floor(6.45) = ", Math.floor(6.45), "<br/>");
+		document.write("Math.round(6.45) = ", Math.round(6.45), "<br/>");
+		document.write("Math.log(10) = ", Math.log(10), "<br/>"); // Natural log
+		document.write("Math.log10(10) = ", Math.log10(10), "<br/>"); // Base 10 log
+		document.write("Math.max(10,5) = ", Math.max(10,5), "<br/>");
+		document.write("Math.min(10,5) = ", Math.min(10,5), "<br/>");
+		document.write("Math.pow(4,2) = ", Math.pow(4,2), "<br/>");
+		document.write("Math.sqrt(1000) = ", Math.sqrt(1000), "<br/>");
+
+		document.write("Random # (1-10) = ", Math.floor((Math.random() * 10) + 1), "<br/>");
+
+		document.write("Convert String: ", Number("3.14"), "<br/>");
+		document.write("Convert Int to String: ", parseInt("5"), "<br/>");
+		document.write("Convert float: ", Number("3.14"), "<br/>");
+
+		var randStr = "A long " + "string that" + "goes on and on";
+		document.write("String Length", randStr.length + "<br/>");
+		// Searches the string for goes, returns the index of the first character of the word
+		// exactly like java
+		document.write("goes index ", randStr.indexOf("goes"), "<br/>");
+		document.write(randStr.slice(18, 23), "<br/>");
+		//same effect, diff param meanings
+		//2nd num is # of chars it should pick up
+		document.write(randStr.substr(18, 4), "<br/>");
+
+
+		document.write(randStr.replace("and on", "forever") + "<br />");
+		var randStrArray = randStr.split(" ");
+
+		document.write(randStr.toUpperCase() + "<br />");
+		document.write(randStr.toLowerCase() + "<br />");
+
+		var strToStyle = "Wazzup Fam";
+ 
+		document.write("Big : ", strToStyle.big(), "<br />");
+		document.write("Bold : ", strToStyle.bold(), "<br />");
+		document.write("Font Color : ", strToStyle.fontcolor("red"), "<br />");
+		document.write("Font Size : ", strToStyle.fontsize("8em"), "<br />");
+		document.write("Italics : ", strToStyle.italics(), "<br />");
+		document.write("Google : ", strToStyle.link("http://google.com"), "<br />");
+		document.write("Small : ", strToStyle.small(), "<br />");
+		document.write("Strike : ", strToStyle.strike(), "<br />");
+		document.write("Sub : ", strToStyle.sub(), "<br />");
+		document.write("Sup : ", strToStyle.sup(), "<br />");
+
+		// Relational operators
+		// Logical operators
+
+		age = 18
+
+		switch(age){
+			case 6 :
+				document.write("Go to Kindergarten " + "<br />");
+			case 18:
+			document.write("Go to College " + "<br />");
+		}
+
+		//TERNARY OPERATOR
+		//(condition) ? ifTrue : ifFalse
+
+		var canIVote = (age >= 18) ? true : false;
+
+		//loops are exactly like Java
+
+		//override index 2, and overides 1 item at that index
+		//used with arrays
+
+		var tomSmith = ["a", "b", 120];
+		tomSmith.splice(2, 1, "Pittsburg", "PA");
+		tomSmith.splice(4,1);
+
+		document.write("Array : ", tomSmith.valueOf(), "<br />");
+
+		//adds a separator between each item of the array
+		document.write("Array : ", tomSmith.join(",, "), "<br />");
+
+		//default sort does Aplhabetically
+		tomSmith.sort();
+
+		numbers.sort(function(x,y){return y - x});
+
+		//array1.concat(array2)
+
+
+	</script>
+
+</body>
+</html>
