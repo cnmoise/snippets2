@@ -1,0 +1,6 @@
+E:\NEIU 2017\CS 335- Artificial Inteligence\Projects\LocalSearch\LocalSearch\bin\Debug\LocalSearch.exe.config
+E:\NEIU 2017\CS 335- Artificial Inteligence\Projects\LocalSearch\LocalSearch\obj\Debug\LocalSearch.csprojResolveAssemblyReference.cache
+E:\NEIU 2017\CS 335- Artificial Inteligence\Projects\LocalSearch\LocalSearch\bin\Debug\LocalSearch.exe
+E:\NEIU 2017\CS 335- Artificial Inteligence\Projects\LocalSearch\LocalSearch\bin\Debug\LocalSearch.pdb
+E:\NEIU 2017\CS 335- Artificial Inteligence\Projects\LocalSearch\LocalSearch\obj\Debug\LocalSearch.exe
+E:\NEIU 2017\CS 335- Artificial Inteligence\Projects\LocalSearch\LocalSearch\obj\Debug\LocalSearch.pdb

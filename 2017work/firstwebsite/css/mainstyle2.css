@@ -1,0 +1,86 @@
+/*-Citation for Borders: p264 in Principles of Web design 6th edition*/
+table{
+	margin-left:auto; 
+    margin-right:auto;
+	margin-top: 20px;
+	
+	border-collapse:separate;
+	border: 6px;
+	border-color:#542E71;
+	border-style: none none solid solid;
+	border-top-left-radius: 25px;
+	border-bottom-right-radius: 25px;
+}
+
+#mainnav {
+	background-color: #542E71;
+	color: cyan;
+	text-align: center;
+}
+/*-Citation for Filmstrip Nav Bar: https://www.w3schools.com/html/html_lists.asp
+
+Explanation for full credit:
+list-style-type: none; gets rid of the bullet points you'd normally see in a list
+block display gives list elements a margin and padding, things you generally see only in paragraph and heading elements
+inline disables the whitespace unordered lists usually gives
+float allows list elements to line up side by side- disables the normal flow of the blocks
+overflow dictates what happens if we exceed the display space (the cell for instance)
+
+*/
+#mainnav ul {
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #976391;
+	
+}
+
+#mainnav li {
+    float: left;
+}
+
+#mainnav li a {
+	font-size: 18px;
+	font-weight: bold;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+#mainnav li a:hover {
+    background-color: #111111;
+}
+/*-Citation for Filmstrip Nav Bar: https://www.w3schools.com/html/html_lists.asp*/
+
+#body{
+background-color: #ACEDFF;
+padding: 30px;
+border-spacing:10px;
+}
+
+
+
+#topbanner {
+  font-family:sans-serif;
+  font-size: 40px;
+  background-color: #FFF07C;
+  padding: 30px;
+  }
+
+  
+#mainnav a:link {color: orange;}
+#mainnav a:visited {color: cyan;}
+
+#footer {
+	background-color: #976391;
+	color: cyan;
+	padding: 15px;
+	text-align: center;
+	border-spacing:10px;
+}
+#footer a:link {color: white;}
+#footer a:visited {color: #FFF07C;}
+  

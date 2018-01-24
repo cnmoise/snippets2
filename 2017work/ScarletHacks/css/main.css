@@ -1,0 +1,94 @@
+body {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  background-color: white;
+  color: black;
+	
+}
+
+body h1, h4{
+		color:#009A49;
+	}
+
+.navbar-collapse
+{
+	background-color:#009A49;
+	position:absolute;
+	z-index:1;
+	width: 100%;
+    text-align: center;
+	margin:auto;
+}
+.navbar-collapse li a {
+	color:black;
+	font-size: 20px;
+    font-variant: small-caps;
+	font-weight: 700;
+}
+.navbar-collapse li a:hover {
+	color: red;
+}
+
+.nopadding
+	{
+		padding-right:0px!important;
+		padding-left:0px!important;
+	}
+
+	
+	
+.section-header{
+	font-variant: small-caps;
+	text-align:center;
+	margin: 0 auto;
+	letter-spacing: 3px;
+	line-height:80px;
+}
+
+.footer {
+  padding-top: 1.5rem;
+  color: #777;
+  border-top: .05rem solid #e5e5e5;
+}
+
+.container {
+ width: 975px;
+}
+
+
+.center {
+    position: absolute;
+    left: 0;
+    top: 40%;
+    width: 100%;
+    text-align: center;
+}
+.btn-xl {
+    padding: 100px 200px;
+    font-size: 20px;
+    border-radius: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+	border: 0px;
+}
+
+#banner { 
+    width: 100%;
+    height: auto;
+    opacity: .8;
+}
+
+.jumbotron {
+	position: relative;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    overflow: hidden;
+	background:transparent;
+	
+}
+.jumbotron .btn {
+  padding: .75rem 1.5rem;
+  font-size: 1.5rem;
+}

@@ -1,0 +1,35 @@
+body{
+background-color: #F0EBD8;
+}
+
+table{
+	margin-left:auto; 
+    margin-right:auto;
+	padding: 5px;
+}
+
+#topbanner {
+  background-color: #800080;
+  color: cyan;
+  }
+
+#mainnav {
+	background-color: #815355;
+	color: cyan;
+	padding: 15px;
+	text-align: center;
+	
+}
+
+#mainnav a:link {color: red;}
+#mainnav a:visited {color: cyan;}
+
+#footer {
+	background-color: navy;
+	color: cyan;
+	padding: 15px;
+	text-align: center;
+}
+#footer a:link {color: white;}
+#footer a:visited {color: orange;}
+  
