@@ -11,10 +11,10 @@ public class MainAvgCalc {
 
 	public static void main(String[] args) {
 		//Sample Test case 1
-	    String Sname = "Bob Saget";
+	   String Sname = "Bob Saget";
 		double ColGPA = 1.389454;
 		double HighGPA = 3.7;
-		boolean weighted = true;
+		boolean weighted = false;
 		String kbw = "x";
 		float RoundedGPA = 0.0f;
 		
@@ -40,13 +40,13 @@ public class MainAvgCalc {
 			weighted = false;
 		}
 		else {
-			System.out.println("Invalid entry... Assuming defaults");
+			System.out.println("Invalid entry... Assuming GPA is unweighted");
 		}
 			
 		System.out.println("Returning Output...");
 		//in python theres no confusion with float and double
 		if(weighted) {
-			RoundedGPA= round(((float)Math.min(4, HighGPA) + (float)((2*ColGPA)/3)),2);
+			RoundedGPA= round((((float)Math.min(4, HighGPA) + (float)((2*ColGPA))))/3,2);
 		}
 		else
 		{
@@ -57,15 +57,15 @@ public class MainAvgCalc {
 		
 		System.out.println("Student Name: " + Sname);
 		System.out.println("College GPA: " + ColGPA);
-		System.out.println("High School GPA: " + HighGPA);
-		
 		if(weighted) {
-			System.out.println("Rounded GPA (Weighted): " + RoundedGPA);
-		}
-		else
-		{
-			System.out.println("Rounded GPA (Unweighted): " + RoundedGPA);
-		}
+         System.out.println("High School GPA (Weighted): " + HighGPA);
+      }
+      else{
+         System.out.println("High School GPA (Unweighted): " + HighGPA);
+      }
+				
+		System.out.println("Rounded GPA: " + RoundedGPA);
+
 		
 	}
 	

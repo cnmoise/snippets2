@@ -24,26 +24,26 @@ print("Is the High School GPA weighted? y/n:")
 kbw = sys.stdin.readline()
 
 kbw = kbw.strip()
-print(kbw)
+#print(kbw)
 if(kbw == "y"):
     weighted = True
 elif(kbw == "n"):
     weighted = False
 else:
-    print("Invalid Input")
+    print("Invalid Input... Assuming GPA Unweighted")
 
-#
+# #
 #
 if(weighted):
-    RoundedGPA = round((min(4, HighGPA) + ((2 * ColGPA) / 3)), 2)
+    RoundedGPA = round(((min(4, HighGPA) + (2 * ColGPA))/3), 2)
 else:
-    RoundedGPA = round((HighGPA + ColGPA)/2, 2)
+    RoundedGPA = round(((HighGPA + ColGPA)/2), 2)
 
 print("Student Name: ", Sname)
 print("College GPA: ", ColGPA)
-print("High School GPA: ", HighGPA)
-
 if(weighted):
-    print("Rounded GPA (Weighted): ", RoundedGPA)
+    print("High School GPA (Weighted): ", HighGPA)
 else:
-	print("Rounded GPA (Unweighted): ", RoundedGPA)
+	print("High School GPA (Unweighted): ", HighGPA)
+
+print("Rounded GPA (Weighted): ", RoundedGPA)
