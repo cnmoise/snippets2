@@ -5,11 +5,14 @@ public class AvgCalc2 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		 String Sname = "Bob Saget";
+		   String studentName = "Bob Saget";
 			double ColGPA = 4.0;
 			double HighGPA = 4.0;
 			boolean weighted = false;
-			boolean flag = true;
+         boolean flag = true;
+		   String kbw = "x";
+
+			
 			//first 14 values are filled with junk numbers
 			double[] RightEnd = new double[] {10,20,30,40,50,
 											60,71,80,90,91,
@@ -18,19 +21,51 @@ public class AvgCalc2 {
 											3.68,3.71,3.74,3.78,3.81,
 											3.84,3.88,3.91,3.94,3.98,4.0};
 			
-			double RoundedGPA = (double)calculateRoundedGPA(ColGPA, HighGPA, weighted);
-			System.out.println("RoundedGPA: " + RoundedGPA);
-								
-			for (int i=15; i<= 30 && flag; i++) {
+         //static example
+// 			double RoundedGPA = (double)calculateRoundedGPA(ColGPA, HighGPA, weighted);
+// 			System.out.println("Student Name: " + studentName);
+//          System.out.println("RoundedGPA: " + RoundedGPA);
+// 			System.out.println("Score for Academic Record: " + calcAcademicRecord(RoundedGPA));
+			
+         Scanner kb = new Scanner(System.in);
+		
+   		System.out.println("Please enter the students name:");
+   		studentName = kb.nextLine();		
+   		System.out.println("Please enter the students College GPA:");
+   		ColGPA = kb.nextDouble();		
+   		System.out.println("Please enter the students High School GPA:");
+   		HighGPA = kb.nextDouble();
+   		kbw = kb.nextLine();
+   		
+   		System.out.println("Is the High School GPA weighted? y/n:");
+   		kbw = kb.next();
+   		
+   		//we need the .equals method to handle strings
+   		if(kbw.equals("y")) {
+   			weighted = true;
+   		}
+   		else if(kbw.equals("n")) {
+   			weighted = false;
+   		}
+   		else {
+   			System.out.println("Invalid entry... Assuming GPA is unweighted");
+   		}
+   			
+   		System.out.println("Returning Output...");
+         
+         double RoundedGPA = (double)calculateRoundedGPA(ColGPA, HighGPA, weighted);
+         System.out.println("Student Name: " + studentName);
+         System.out.println("RoundedGPA: " + RoundedGPA);
+         
+         for (int i=15; i<= 30 && flag; i++) {
 				if(RoundedGPA <= RightEnd[i]) {
-					//System.out.println("Compared to: " + RightEnd[i]);
-					System.out.println("Score for Academic Record: " + i);
-					flag = false;
-				}
-			}
-			
-			
-		}
+					System.out.println("Compared to: " + RightEnd[i]);
+               System.out.println("Score for Academic Record: " + i);
+               flag = false;
+               }
+         }
+
+     		}
 		
 
 	public static float round(float d, int decimalPlace) {
@@ -54,4 +89,5 @@ public class AvgCalc2 {
 		
 		return RoundedGPA;
 	}
+  
 }
