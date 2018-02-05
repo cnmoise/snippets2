@@ -22,6 +22,10 @@ RightEnd = [10,20,30,40,50,
 
 kbw = "x";
 
+#print("");
+#if is a freshman
+
+
 #by default stdin takes input as strings
 #therefore we have to explicitly cast the input as a float
 print("Please enter the students name:")
@@ -54,7 +58,7 @@ def calculateRoundedGPA(ColGPA, HighGPA, weighted):
 RoundedGPA = calculateRoundedGPA(ColGPA, HighGPA, weighted)
 
 print("Rounded GPA: ", RoundedGPA)
-for i in range(15, 30):
+for i in range(15, 31):
     if (RoundedGPA <= RightEnd[i] and flag):
         print("Compared to:", RightEnd[i])
         print("Score for Academic Record", i)
