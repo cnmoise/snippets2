@@ -12,6 +12,7 @@ weighted = True
 #Needs to be declared in global scope
 RoundedGPA = 0.0
 flag = True
+isFreshman = False;
 
 RightEnd = [10,20,30,40,50,
 			60,71,80,90,91,
@@ -21,6 +22,19 @@ RightEnd = [10,20,30,40,50,
 			3.84,3.88,3.91,3.94,3.98,4.0]
 
 kbw = "x";
+
+print("Please enter the students name:")
+Sname = sys.stdin.readline()
+
+
+kbw = kbw.strip()
+#print(kbw)
+if(kbw == "y"):
+    isFreshman = True
+elif(kbw == "n"):
+    isFreshman = False
+else:
+    print("Invalid Input... Assuming Student is a Freshman")
 
 #print("");
 #if is a freshman
