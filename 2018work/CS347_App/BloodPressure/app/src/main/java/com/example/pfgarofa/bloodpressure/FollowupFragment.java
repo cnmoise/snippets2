@@ -20,6 +20,9 @@ public class FollowupFragment extends Fragment {
         // Required empty public constructor
     }
 
+    public void showFollowUp(int category){
+        mFollowUpTextView.setText(BloodPressure.mRecommendations[category]);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

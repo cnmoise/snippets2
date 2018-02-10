@@ -73,8 +73,9 @@ if (isFreshman):
 else:
     print("Please enter the NON-Freshman students College GPA:")
     ColGPA = float(sys.stdin.readline())
-    RoundedGPA = ColGPA
+    RoundedGPA = round(ColGPA, 2)
     print("Students Name: ", studentName)
+    print("Rounded GPA: ", RoundedGPA)
 
 #This section of the program applies to both Freshman and Non-Freshman
 for i in range(15, 31):

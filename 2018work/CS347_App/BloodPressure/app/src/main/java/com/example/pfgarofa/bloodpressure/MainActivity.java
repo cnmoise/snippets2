@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+    implements InputFragment.FollowUpHandler
     private static final String TAG = "MAINACTIVITY";
 //    private static final String KEY_CATEGORY = "category";
 
@@ -25,6 +26,13 @@ public class MainActivity extends AppCompatActivity {
 //                mFollowUpTextView.setText(BloodPressure.mRecommendations[mCategory]);
 //            }
 //        }
+    }
+
+    @Override
+    public  void displayFollowUp(int category){
+        FollowupFragment frag = (FollowupFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_followup);
+
+        frag.showFollowUp(category);
     }
 
 //    @Override
