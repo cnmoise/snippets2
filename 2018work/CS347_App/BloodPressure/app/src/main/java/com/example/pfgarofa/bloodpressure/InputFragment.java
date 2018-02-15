@@ -84,6 +84,7 @@ public class InputFragment extends Fragment {
 
     }
 
+    //callback Function?
     @Override
     public void onAttach(Context context){
         super.onAttach(context);
