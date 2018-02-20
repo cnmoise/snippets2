@@ -21,6 +21,7 @@ public class Crime {
     public Crime(){
         mId = UUID.randomUUID();
         mDate = new Date();
+        //2000, 12, 5
     }
 
     public UUID getId() {

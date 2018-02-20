@@ -17,6 +17,7 @@ public class CrimeLab {
     private CrimeLab(Context context)
     {
         mCrimes = new ArrayList<>();
+        //generates data for the array
         for(int i = 0; i < 100; i++){
             Crime crime = new Crime();
             crime.setTitle("Crime #" + i);
@@ -43,8 +44,9 @@ public class CrimeLab {
         //goes through each element of mCrimes and lists the crime
         for(Crime crime : mCrimes){
             if(crime.getId().equals(id)){
-                return null;
+                return crime;
             }
         }
+        return null;
     }
 }
