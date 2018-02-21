@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
@@ -38,9 +39,14 @@ public class CrimeListFragment extends Fragment{
 
         public void bind(Crime crime) {
             mCrime = crime;
+            SimpleDateFormat df = new SimpleDateFormat();
+
+
+            //DateFormat df = DateFormat.getDateInstance(DateFormat.MEDIUM);
             mTitleTextView.setText(mCrime.getTitle());
             //mDateTextView.setText(mCrime.getDate().toString());
-            mDateTextView.setText(DateFormat.getDateInstance().format(mCrime.getDate()));
+//            mDateTextView.setText(DateFormat.getDateInstance(DateFormat.MEDIUM).format(mCrime.getDate()));
+            mDateTextView.setText(df.format(mCrime.getDate()));
         }
 
 
