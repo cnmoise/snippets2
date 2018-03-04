@@ -1,6 +1,6 @@
 ALTER SESSION SET CURRENT_SCHEMA = repas;
 -- uses this schema name as the schema qualifier when the qualifier is omitted. 
-/*
+
 prompt 'Question 1';
 
 Select nomV from leMenu where nomP = 'Foie gras';
@@ -41,7 +41,7 @@ Select dateR, nomP, nomV from LesRepas natural join leMenu where nomI='Jacques';
 
 --5
 Select distinct nomA from LeMenu natural join LesPreferences;
-/*
+
 --why does the above work better?
 prompt 'Q5';
 select distinct nomI from LesRepas natural join LeMenu M join LesPreferences P on (P.nomP = M.nomP)
