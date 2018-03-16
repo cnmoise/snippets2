@@ -4,7 +4,6 @@ import java.util.Scanner;
 public class AvgCalc2 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		   String studentName = "Bob Saget";
 			double ColGPA = 4.0;
 			double HighGPA = 4.0;

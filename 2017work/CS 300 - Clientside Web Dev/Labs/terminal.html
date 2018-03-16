@@ -1,0 +1,35 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+    
+    <title>Form Test</title>
+	<link rel="SHORTCUT ICON" href="images/claudesicon.ico"/>
+	
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    
+	<script type="text/javascript">
+	function doc_keyUp(e) {
+		if (e.keyCode == 88) {
+			document.getElementById('b1').style.visibility = 'hidden';		
+		}
+
+		else if (e.keyCode == 84) {
+			document.getElementById('b1').style.display = 'visible';		
+		}
+	}
+	document.addEventListener('keyup', doc_keyUp, false);
+	</script>
+
+	</head>
+    
+	<body>
+		
+        <div style="height:98%;width:98%;position:absolute;background-color:#b59963;">
+			<img id="b1" src="Beladey.gif" style="margin:50px"/ onkeydown="doc_keyUp(e)">
+			<img id="b1" src="anomaly.jpg" style="margin:50px"/>
+		</div>
+    </body>
+     
+    </html>

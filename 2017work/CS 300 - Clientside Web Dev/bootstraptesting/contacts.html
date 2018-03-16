@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Game Maker Club</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/gmcstylemain.css">
+	
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+
+<style>
+		.active
+		{
+			background-color: #f4c842;
+		}
+		
+	</style>
+
+<body>
+	
+	<nav class="navbar navbar-light" style="background-color: #000000;">
+	
+        <div class="container-fluid">
+            <!-- Logo -->
+			<!-- This is not really part of the nav bar -->
+            <div class="navbar-header">
+                <a href="gamemakerclub.html"><img src="gmcimages/gmclogosmall.png" class="img-rounded" style="float: left; padding: 8px 0;"></a>
+            </div>
+
+			
+			
+            <!-- Menu Items -->
+            <div class="collapse navbar-collapse" id="mainNavBar">
+                <ul class="nav navbar-nav">
+					<li><a href="blog.html">Blog</a></li>
+					<li><a href="contacts.html">Contacts</a></li>
+					<li><a href="resources.html">Resources</a></li>
+					<li><a href="inspiration.html">Indie Game Gallery</a></li>
+                    <!-- drop down menu -->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">I'm Crazy <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Drop</a></li>
+                            <li><a href="#">Down</a></li>
+							<li><a href="#">Menus</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+							<span class="glyphicon glyphicon-menu-hamburger"></span>
+							
+				</button>
+			</div>
+			
+        </div>
+    </nav>
+	
+	<form class="form-inline">
+	  <div class="form-group">
+		<label class="sr-only" for="exampleInputEmail3">Email address</label>
+		<input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+	  </div>
+	  <div class="form-group">
+		<label class="sr-only" for="exampleInputPassword3">Password</label>
+		<input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
+	  </div>
+	  <div class="checkbox">
+		<label>
+		  <input type="checkbox"> Remember me
+		</label>
+	  </div>
+	  <button type="submit" class="btn btn-default">Sign in</button>
+	</form>
+	
+	<textarea class="form-control" rows="3"></textarea>
+</body>
+</html>

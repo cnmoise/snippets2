@@ -2,6 +2,11 @@
 #GPA calculator for Java and Python
 
 #Allows us to use the readline method
+
+
+
+
+
 import sys
 
 Sname ="Derek Brambles"
@@ -10,6 +15,7 @@ HighGPA = 3.7
 #Booleans are capitalized
 weighted = True
 RoundedGPA = 0.0
+#used as a temporary variable to store user choice
 kbw = "x";
 
 #by default stdin takes input as strings

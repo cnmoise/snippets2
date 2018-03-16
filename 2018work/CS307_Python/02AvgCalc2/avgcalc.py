@@ -72,6 +72,7 @@ def calculateRoundedGPA(ColGPA, HighGPA, weighted):
 RoundedGPA = calculateRoundedGPA(ColGPA, HighGPA, weighted)
 
 print("Rounded GPA: ", RoundedGPA)
+
 for i in range(15, 31):
     if (RoundedGPA <= RightEnd[i] and flag):
         print("Compared to:", RightEnd[i])

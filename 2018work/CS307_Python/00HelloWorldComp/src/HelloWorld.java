@@ -3,9 +3,6 @@ import java.util.Scanner;
 public class HelloWorld {
 
 	public static void main(String[] args) {
-		// Author: Claudiu Moise
-		// Hello world comparison between Java and Python
-		// One with a static message and one where the input is user defined
 		String greeting = "";
 		
 		
@@ -22,3 +19,8 @@ public class HelloWorld {
 	}
 
 }
+
+
+// Author: Claudiu Moise
+// Hello world comparison between Java and Python
+// One with a static message and one where the input is user defined
