@@ -1,0 +1,9 @@
+5 variable sum, i, and j are not declared at the begining of the program
+the only reason this is a problem for i is because i is used outside of
+the for loop it is originally declared in
+
+10 adding ; at the end of the if statement makes the code following it not execute
+11 no ; , the compiler runs into an error reading this
+15 same as 10, while loop does not execute
+18 same as 11
+25 same as 11, this only applies to do while loops
