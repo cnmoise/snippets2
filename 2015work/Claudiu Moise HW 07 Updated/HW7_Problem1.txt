@@ -1,0 +1,36 @@
+Harry
+Larry
+Mary
+Larry1
+Harry1
+Mary3
+Harry
+Larry
+13
+13
+Harry
+Harry
+Harry1
+Harry1
+Harry2
+13
+Larry1
+Harry1
+Mary2
+19
+Harry1
+Harry1
+Harry2
+19
+Larry1
+Harry1
+Larry1
+Harry1
+Harry2
+21
+Harry Equality
+false
+Larry Equality
+false
+Harry Equality
+true
