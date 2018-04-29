@@ -2,29 +2,6 @@
 #Hello world comparison between Java and Python
 #One with a static message and one where the input is user defined
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #Allows us to use the readline method
 #No need to name program
 import sys

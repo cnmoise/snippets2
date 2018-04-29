@@ -1,3 +1,7 @@
+// Author: Claudiu Moise
+// Hello world comparison between Java and Python
+// One with a static message and one where the input is user defined
+
 import java.util.Scanner;
 
 public class HelloWorld {
@@ -21,6 +25,3 @@ public class HelloWorld {
 }
 
 
-// Author: Claudiu Moise
-// Hello world comparison between Java and Python
-// One with a static message and one where the input is user defined

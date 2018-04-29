@@ -1,0 +1,78 @@
+1.
+
+Without having a larger sample than 1 patient it may be difficult to determine if there are many anomalies.
+There seems to be no insert anomalies present. 
+If we delete a patient from the database, then we are left with a series of orphan tuples for the various medicine he was taking.
+If a patient has multiple perscriptions of similar medication it may be impossible to tell the difference between prescriptions. This would be a modification anomaly
+
+2.
+UNF
+
+=========================================================================================================================================================
+|| PatientID | PatientName | WardID | RoomNumber | WardName | DrugID | DrugName | Description | Dosage | Method | UnitsPerDay | StartDate | FinishDate ||
+=========================================================================================================================================================
+|| P2103     | John Doe    | 23     | 16         | Orthopaedic | 31223  | Morphine     | Pain Killer | 10/mg/ml | Oral | 50 | 03/24/18 | 04/24/19 ||
+||           |             |        |            |             | 31334  | Tetracyclene | Antibiotic  | 0.5mg/ml | IV   | 10 | 03/24/18 | 04/17/18 ||
+||           |             |        |            |             | 31223  | Morphine     | Pain Killer | 10/mg/ml | Oral | 10 | 04/25/18 | 05/02/19 ||
+=========================================================================================================================================================
+
+I combined the two forms into one cohesive table, leaving the data concerning the patient un-repeated across the other tuples. 
+
+1NF
+
+=========================================================================================================================================================
+|| PatientID | PatientFName | PatientLName | WardID | RoomNumber | WardName | DrugID | DrugName | Description | Dosage | Method | UnitsPerDay | StartDate | FinishDate ||
+=========================================================================================================================================================
+|| P2103     | John         |  Doe  | 23     | 16         | Orthopaedic | 31223  | Morphine     | Pain Killer | 10/mg/ml | Oral | 50 | 03/24/18 | 04/24/19 ||
+|| P2103     | John         |  Doe  | 23     | 16         | Orthopaedic | 31334  | Tetracyclene | Antibiotic  | 0.5mg/ml | IV   | 10 | 03/24/18 | 04/17/18 ||
+|| P2103     | John         |  Doe  | 23     | 16         | Orthopaedic | 31223  | Morphine     | Pain Killer | 10/mg/ml | Oral | 10 | 04/25/18 | 05/02/19 ||
+=========================================================================================================================================================
+
+I repeated the patient information for each tuple. I separated every value into attomic components.
+
+Each tuple has a primary key in the form a composite key between PatientID and DrugID
+
+2NF
+
+=================================================================   
+|| PatientID | PatientFName | PatientLName | WardID | RoomNumber | WardName    || 
+=================================================================
+|| P2103     | John    | Doe | 23     | 16         | Orthopaedic ||   
+|| P2103     | John    | Doe | 23     | 16         | Orthopaedic ||  
+|| P2103     | John    | Doe | 23     | 16         | Orthopaedic ||  
+=================================================================   
+
+==========================================================================================================
+|| PatientID | PerscriptionID | DrugID | DrugName | Description | Dosage | Method | UnitsPerDay | StartDate | FinishDate ||
+======================================================================================================
+|| P2103     | 1 | 31223  | Morphine     | Pain Killer | 10/mg/ml | Oral | 50 | 03/24/18 | 04/24/19 ||
+|| P2103     | 2 | 31334  | Tetracyclene | Antibiotic  | 0.5mg/ml | IV   | 10 | 03/24/18 | 04/17/18 ||
+|| P2103     | 3 | 31223  | Morphine     | Pain Killer | 10/mg/ml | Oral | 10 | 04/25/18 | 05/02/19 ||
+=======================================================================================================
+
+I separated the tables into their own related data sets, and created candidate keys for both tables.
+
+PatientID -> PatientFName, PatientLName, WardID, RoomNumber ,WardName
+PerscriptionID -> DrugID, DrugName, Description, Dosage, Method, UnitsPerDay, StartDate, FinishDate
+
+Candidate key
+PatientID, PerscriptionID -> PatientFName, PatientLName, WardID, RoomNumber, WardName, DrugID, DrugName, Description, Dosage, Method, UnitsPerDay, StartDate, FinishDate
+
+
+3NF
+
+There are no transitive dependencies therefore the table can remain the same as 2NF.
+
+3.
+
+PK = Primary Key
+FK = Foreign Key
+
+1NF
+
+Residency: (PatientID (PK), PatientFName, PatientLName, WardID, RoomNumber, WardName, DrugID, DrugName, Description, Dosage, Method, UnitsPerDay, StartDate, FinishDate)
+
+2NF/3NF
+
+Patients: (PatientID (PK), PatientFName, PatientLName, WardID, RoomNumber, WardName)
+Perscriptions: (PerscriptionID (PK), PatientID (FK), DrugID, DrugName, Description, Dosage, Method, UnitsPerDay, StartDate, FinishDate)

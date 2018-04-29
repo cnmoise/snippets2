@@ -1,0 +1,18 @@
+for X in {1..5}
+do
+	echo "hi $X"
+done
+
+//bash is VERY PARTICULAR about spacing []
+//I don't know why we need this format for performing ops on a variable $(())
+
+
+for X in {1..100}
+do
+    if [ $((X%2)) -eq 1 ]
+        then
+            echo "$X"
+    fi
+done
+
+//$X is only used when referencing variable not when its in the body
