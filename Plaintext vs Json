@@ -1,0 +1,55 @@
+Plaintext
+
+temp
+  min = 11.34
+  max = 19.01
+weather
+  id = 801
+  condition = Clouds
+  description = few clouds
+pressure = 1023.51
+humidity = 87
+
+
+JSON Version
+{
+   "temp": {
+      "min":11.34,
+      "max":19.01
+   },
+   "weather": {
+      "id":801,
+      "condition":"Clouds",
+      "description":"few clouds"
+   },
+   "pressure":1023.51,
+   "humidity":87
+}
+
+android code (Java)
+//Given the following JSON, write a function to retrieve the weather "condition".
+
+
+//initialize JSON Object from JSON string
+JSONObject condition = new JSONObject(conditionJSONString);
+
+//Attributes into JSON objects
+JSONObject temp = condition.getJSONObject("temp");
+	//nested atribs
+	String pressure = condition.getString("pressure");
+	String humidity = condition.getString("humidity");
+JSONObject weather = condition.getJSONObject("weather");
+	
+
+//create single attribs
+String pressure = condition.getString("pressure");
+String humidity = condition.getString("humidity");
+
+
+//answer
+//build the object and look for a specific atrib "condition" within it
+String getCondition(String JSONString) {
+   JSONObject forecast = new JSONObject(JSONString);
+   JSONObject weather = forecast.getJSONObject("weather");
+   return weather.getString("condition");
+}
