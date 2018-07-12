@@ -1,0 +1,7 @@
+#Internal package file, do not edit.
+#Tue May 08 11:00:26 CDT 2018
+0.baseType=DIRECTORY
+0.base=D\:\\snippets2\\2018work\\Summer\\Android\\Refresher_Project\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+0.path=classes.dex
+0.set=DEX
+count=1
