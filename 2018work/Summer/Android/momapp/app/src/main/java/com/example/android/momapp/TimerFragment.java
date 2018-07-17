@@ -6,6 +6,7 @@ import android.os.CountDownTimer;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -31,8 +32,10 @@ public class TimerFragment extends Fragment{
     private TextView mTextViewCountdownTimer;
     private Button mTimerStartPause;
     private Button mTimerReset;
-    private RecyclerView mPresetList;
 
+    private RecyclerView mPresetList;
+    private static final int NUM_LIST_ITEMS = 100;
+    private PresetAdapter mAdapter;
 
     private boolean mTimerRunning;
     private static long mTimeAtCreationInMillis = START_TIME_IN_MILLIS;
@@ -44,7 +47,9 @@ public class TimerFragment extends Fragment{
 
 
     private CountDownTimer mCountdownTimer;
-    private static final String TAG = MainActivity.class.getSimpleName();
+    private static final String TAG = "Claude Timer";
+    private static final String LifeCycleTag = TAG + " Lifecycle";
+    private static final String ActionTag = TAG + " Action";
 
 
 
@@ -53,8 +58,7 @@ public class TimerFragment extends Fragment{
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         if (savedInstanceState != null) {
             //Restore the fragment's state here
-            Log.d(TAG, "Claude Lifecycle: fragment state here");
-            System.out.println("SOPL fragment's state here");
+            Log.d(LifeCycleTag, "Fragment state here");
             //mTimeLeftInMillis = savedInstanceState.get();
 
             Fragment mContent = getFragmentManager().getFragment(savedInstanceState, "TimerFragment");
@@ -74,13 +78,34 @@ public class TimerFragment extends Fragment{
 // set the drawable as progress drawable
         mProgressBar.setProgressDrawable(draw);
 
+        pBarMax = (int) mTimeLeftInMillis;
+        mProgressBar.setMax((int) mTimeAtCreationInMillis);
+        Log.d(TAG, "Max progress (start)"+ pBarMax);
+        mProgressBar.setProgress(pBarMax);
+
+        Log.d(TAG, "mTimeLeftInMillis "+ mTimeLeftInMillis);
+        Log.d(TAG, "pbar prog "+ progressBarTicker);
+
+
+        //sets up RecyclerView & User Preset List
         mPresetList = (RecyclerView) v.findViewById(R.id.rv_presets);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        mPresetList.setLayoutManager(layoutManager);
+        mPresetList.setHasFixedSize(true);
+
+        // The PresetAdapter is responsible for displaying each item in the list.
+        mAdapter = new PresetAdapter(NUM_LIST_ITEMS);
+
+        // COMPLETED (9) Set the GreenAdapter you created on mNumbersList
+        mPresetList.setAdapter(mAdapter);
 
         //lets users make their own timers
         mUserTimerInput = (Button) v.findViewById(R.id.bt_timer_input);
         mUserTimerInput.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 long inputSecondsInMillis;
                 long inputMinutesInMillis;
 
@@ -102,10 +127,13 @@ public class TimerFragment extends Fragment{
                     inputMinutesInMillis = dude2*60000;
                 }
 
-                mTimeLeftInMillis = inputSecondsInMillis+inputMinutesInMillis;
+                mTimeAtCreationInMillis = inputSecondsInMillis+inputMinutesInMillis;
+                mTimeLeftInMillis = mTimeAtCreationInMillis;
 
+                pauseTimer();
                 resetTimer();
                 startTimer();
+                Log.d(ActionTag, "User Timer Reset, paused then Started");
             }
         });
 
@@ -135,7 +163,7 @@ public class TimerFragment extends Fragment{
         });
 
         updateCountdownText();
-
+        Log.d(LifeCycleTag, "onCreateView");
 
         return v;
     }
@@ -149,10 +177,10 @@ public class TimerFragment extends Fragment{
             public void onTick(long millisUntilFinished) {
                 mTimeLeftInMillis = millisUntilFinished;
                 updateCountdownText();
-                Log.d("Claude", "ProgTick "+ progressBarTicker + " || millisUntilFinished: "+ millisUntilFinished);
+                //Log.d(TAG, "ProgTick "+ progressBarTicker + " || millisUntilFinished: "+ millisUntilFinished);
                 progressBarTicker++;
                 mProgressBar.setProgress(pBarMax - (int)progressBarTicker*1000);
-                Log.d("Claude", "Calc: "+ pBarMax + " - " + progressBarTicker*1000);
+                //Log.d(TAG, "Calc: "+ pBarMax + " - " + progressBarTicker*1000);
 
             }
 
@@ -169,16 +197,13 @@ public class TimerFragment extends Fragment{
         }.start();
 
         //
-        pBarMax = (int) mTimeLeftInMillis;
-        mProgressBar.setMax((int) mTimeAtCreationInMillis);
-        Log.d("Claude", "Max progress "+ pBarMax);
-        mProgressBar.setProgress(pBarMax);
+        Log.d(ActionTag, "Timer Started");
 
         mTimerRunning = true;
         mTimerStartPause.setText("Pause");
         mTimerReset.setVisibility(View.INVISIBLE);
 
-        Log.d("Action", "Timer Started");
+
     }
     private void pauseTimer(){
         mCountdownTimer.cancel();
@@ -189,22 +214,22 @@ public class TimerFragment extends Fragment{
         mTimerStartPause.setText("Start Timer");
         mTimerReset.setVisibility(View.VISIBLE);
 
-        Log.d("Action", "Timer Paused");
+        Log.d(ActionTag, "Timer Paused");
     }
     private void resetTimer(){
-        //mTimeLeftInMillis
-        mTimeLeftInMillis = START_TIME_IN_MILLIS;
+        mTimeLeftInMillis = mTimeAtCreationInMillis;
         updateCountdownText();
         progressBarTicker = 0;
 
         pBarMax = (int) mTimeAtCreationInMillis;
         mProgressBar.setMax((int) mTimeAtCreationInMillis);
+        Log.d(TAG, "Max progress (reset) "+ pBarMax);
         mProgressBar.setProgress(pBarMax);
 
         mTimerReset.setVisibility(View.INVISIBLE);
         mTimerStartPause.setVisibility(View.VISIBLE);
 
-        Log.d("Action", "Timer Reset");
+        Log.d(ActionTag, "Timer Reset");
     }
     //where we write into the timer
     private void updateCountdownText(){
@@ -215,47 +240,48 @@ public class TimerFragment extends Fragment{
         String timeLeftFormatted = String.format(Locale.getDefault(),"%02d:%02d", minutes, seconds);
 
         mTextViewCountdownTimer.setText(timeLeftFormatted);
+        //Log.d(TAG, "Updated CountdownText");
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        Log.d(TAG, "Claude Lifecycle: onStart");
+        Log.d(LifeCycleTag, "onStart");
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d(TAG, "Claude Lifecycle: onStart");
+        Log.d(LifeCycleTag, "onCreate");
 
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        Log.d(TAG, "Claude Lifecycle: onResume");
+        Log.d(LifeCycleTag, "onResume");
 
+        updateCountdownText();
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        Log.d(TAG, "Claude Lifecycle: onPause");
+        Log.d(LifeCycleTag, "onPause");
 
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        Log.d(TAG, "Claude Lifecycle: onStop");
-//        onSaveInstanceState();
+        Log.d(LifeCycleTag, "onStop");
 
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d(TAG, "Claude Lifecycle: onDestroy");
+        Log.d(LifeCycleTag, "onDestroy");
     }
 
     @Override
@@ -263,6 +289,8 @@ public class TimerFragment extends Fragment{
         super.onSaveInstanceState(outState);
         //reffering to THIS fragment
         getFragmentManager().putFragment(outState, "TimerFragment", this);
+        Log.d(LifeCycleTag, "onSaveInstanceState");
+
 
         //String lifecycleDisplayTextViewContents = mLifecycleDisplay.getText().toString();
         //outState.putString(LIFECYCLE_CALLBACKS_TEXT_KEY, lifecycleDisplayTextViewContents);
