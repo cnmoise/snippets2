@@ -1,11 +1,15 @@
 package com.example.android.momapp;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -24,18 +28,21 @@ import static java.lang.Integer.parseInt;
 public class TimerFragment extends Fragment{
 
     private static final long START_TIME_IN_MILLIS = 60000;
+    private TextView mTextViewCountdownTimer;
+
     private EditText mSecondsEditText;
     private EditText mMinutesEditText;
-    private Button mUserTimerInput;
 
 
-    private TextView mTextViewCountdownTimer;
     private Button mTimerStartPause;
     private Button mTimerReset;
+    private Button mUserTimerInput;
+    private Button mNewPreset;
+
 
     private RecyclerView mPresetList;
     private static final int NUM_LIST_ITEMS = 100;
-    private PresetAdapter mAdapter;
+    //private PresetAdapter mAdapter;
 
     private boolean mTimerRunning;
     private static long mTimeAtCreationInMillis = START_TIME_IN_MILLIS;
@@ -71,69 +78,40 @@ public class TimerFragment extends Fragment{
         mSecondsEditText = (EditText) v.findViewById(R.id.et_timer_entry_s);
         mMinutesEditText = (EditText) v.findViewById(R.id.et_timer_entry_m);
 
+        //Creates Progress Bar & customizes it
+
         mProgressBar=(ProgressBar) v.findViewById(R.id.progressbar);
         mProgressBar.setProgress(progressBarTicker);
-        // Get the Drawable custom_progressbar
         Drawable draw = getResources().getDrawable(R.drawable.customprogressbar, null);
-// set the drawable as progress drawable
         mProgressBar.setProgressDrawable(draw);
 
         pBarMax = (int) mTimeLeftInMillis;
         mProgressBar.setMax((int) mTimeAtCreationInMillis);
-        Log.d(TAG, "Max progress (start)"+ pBarMax);
         mProgressBar.setProgress(pBarMax);
 
+        Log.d(TAG, "Max progress (start)"+ pBarMax);
         Log.d(TAG, "mTimeLeftInMillis "+ mTimeLeftInMillis);
         Log.d(TAG, "pbar prog "+ progressBarTicker);
 
 
         //sets up RecyclerView & User Preset List
-        mPresetList = (RecyclerView) v.findViewById(R.id.rv_presets);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        mPresetList.setLayoutManager(layoutManager);
-        mPresetList.setHasFixedSize(true);
+//        mPresetList = (RecyclerView) v.findViewById(R.id.rv_presets);
+//        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+//        mPresetList.setLayoutManager(layoutManager);
+//        mPresetList.setHasFixedSize(true);
 
         // The PresetAdapter is responsible for displaying each item in the list.
-        mAdapter = new PresetAdapter(NUM_LIST_ITEMS);
+        //mAdapter = new PresetAdapter(NUM_LIST_ITEMS);
 
         // COMPLETED (9) Set the GreenAdapter you created on mNumbersList
-        mPresetList.setAdapter(mAdapter);
+        //mPresetList.setAdapter(mAdapter);
 
         //lets users make their own timers
         mUserTimerInput = (Button) v.findViewById(R.id.bt_timer_input);
         mUserTimerInput.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-                long inputSecondsInMillis;
-                long inputMinutesInMillis;
-
-                if(mSecondsEditText.getText().toString().equals("")){
-                    inputSecondsInMillis = 0;
-                }
-                else{
-                    String woah = mSecondsEditText.getText().toString();
-                    int dude = parseInt(woah);
-                    inputSecondsInMillis = dude*1000;
-                }
-
-                if(mMinutesEditText.getText().toString().equals("")){
-                    inputMinutesInMillis = 0;
-                }
-                else {
-                    String woah2 = mMinutesEditText.getText().toString();
-                    int dude2 = parseInt(woah2);
-                    inputMinutesInMillis = dude2*60000;
-                }
-
-                mTimeAtCreationInMillis = inputSecondsInMillis+inputMinutesInMillis;
-                mTimeLeftInMillis = mTimeAtCreationInMillis;
-
-                pauseTimer();
-                resetTimer();
-                startTimer();
-                Log.d(ActionTag, "User Timer Reset, paused then Started");
+                createUserTimer();
             }
         });
 
@@ -159,6 +137,28 @@ public class TimerFragment extends Fragment{
             @Override
             public void onClick(View v) {
                 resetTimer();
+            }
+        });
+
+        //creates new Presets
+        mNewPreset = v.findViewById(R.id.bt_save_new_preset);
+        mNewPreset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Context context = this;
+//                Class destinationActivity = NewPresetActivity.class;
+//
+//                Intent startNewPresetIntent = new Intent(getActivity(), destinationActivity);
+//                startActivity(startNewPresetIntent);
+//
+//                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+//                builder.setMessage(R.string.dialog_message)
+//                        .setTitle(R.string.dialog_title);
+//                AlertDialog dialog = builder.create();
+
+                DialogFragment newFragment = new NewPresetFragment();
+                newFragment.show(getFragmentManager(), "missiles");
+
             }
         });
 
@@ -241,6 +241,44 @@ public class TimerFragment extends Fragment{
 
         mTextViewCountdownTimer.setText(timeLeftFormatted);
         //Log.d(TAG, "Updated CountdownText");
+    }
+    private void createUserTimer(){
+        long inputSecondsInMillis;
+        long inputMinutesInMillis;
+
+        if(mSecondsEditText.getText().toString().equals("")){
+            inputSecondsInMillis = 0;
+        }
+        else{
+            String woah = mSecondsEditText.getText().toString();
+            int dude = parseInt(woah);
+            inputSecondsInMillis = dude*1000;
+        }
+
+        if(mMinutesEditText.getText().toString().equals("")){
+            inputMinutesInMillis = 0;
+        }
+        else {
+            String woah2 = mMinutesEditText.getText().toString();
+            int dude2 = parseInt(woah2);
+            inputMinutesInMillis = dude2*60000;
+        }
+
+        mTimeAtCreationInMillis = inputSecondsInMillis+inputMinutesInMillis;
+        mTimeLeftInMillis = mTimeAtCreationInMillis;
+
+        if(mTimerRunning){
+            pauseTimer();
+            resetTimer();
+            startTimer();
+
+            Log.d(ActionTag, "pauseTimer();" + "resetTimer();" + "startTimer();");
+        } else {
+            resetTimer();
+            startTimer();
+
+            Log.d(ActionTag, "resetTimer();" + "startTimer();");
+        }
     }
 
     @Override
