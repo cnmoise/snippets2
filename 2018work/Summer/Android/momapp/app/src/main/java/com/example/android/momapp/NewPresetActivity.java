@@ -17,7 +17,7 @@ public class NewPresetActivity extends AppCompatActivity {
             nums[i] = Integer.toString(i*5);
         }
 
-        NumberPicker np = (NumberPicker) findViewById(R.id.np);
+        NumberPicker np = (NumberPicker) findViewById(R.id.np_minutes_picker);
         np.setMaxValue(60);
         np.setMinValue(0);
         np.setWrapSelectorWheel(false);
