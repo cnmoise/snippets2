@@ -12,6 +12,9 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.Selection;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,6 +35,7 @@ public class TimerFragment extends Fragment{
 
     private EditText mSecondsEditText;
     private EditText mMinutesEditText;
+    private EditText mCombinedEditText;
 
 
     private Button mTimerStartPause;
@@ -75,8 +79,28 @@ public class TimerFragment extends Fragment{
         View v = inflater.inflate(R.layout.fr_timer, container, false);
 
         mTextViewCountdownTimer = (TextView) v.findViewById(R.id.tv_timer);
-        mSecondsEditText = (EditText) v.findViewById(R.id.et_timer_entry_s);
-        mMinutesEditText = (EditText) v.findViewById(R.id.et_timer_entry_m);
+//        mSecondsEditText = (EditText) v.findViewById(R.id.et_timer_entry_s);
+//        mMinutesEditText = (EditText) v.findViewById(R.id.et_timer_entry_m);
+        mCombinedEditText = (EditText) v.findViewById(R.id.et_timer_entry_c);
+        mCombinedEditText.addTextChangedListener(mCombinedWatcher);
+
+        mCombinedEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                int position = mCombinedEditText.length();
+                if (hasFocus) {
+                    Log.d(TAG, "position " + position);
+                    mCombinedEditText.setSelection(mCombinedEditText.length());
+                    //mCombinedEditText.setSelection(0);
+                    //mCombinedEditText.setText("42");
+                    //Editable etext = mCombinedEditText.getText();
+                    //Selection.setSelection(etext, position);
+                }
+            }
+
+        });
+
+
 
         //Creates Progress Bar & customizes it
 
@@ -168,6 +192,45 @@ public class TimerFragment extends Fragment{
         return v;
     }
 
+    //autofills colons for the users convenience
+    private TextWatcher mCombinedWatcher = new TextWatcher() {
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            String working = s.toString();
+            Log.d(TAG, "Before "+ before);
+            boolean isValid = true;
+            if (working.length()==2 && before ==0) {
+                working+=":";
+                mCombinedEditText.setText(working);
+                mCombinedEditText.setSelection(working.length());
+            }
+            else if (working.length()==5 && before ==0) {
+                working+=":";
+                mCombinedEditText.setText(working);
+                mCombinedEditText.setSelection(working.length());
+               //int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+
+            }
+            else if (working.length()!=9) {
+                isValid = false;
+            }
+
+            if (!isValid) {
+                mCombinedEditText.setError(null);
+            } else {
+                mCombinedEditText.setError(null);
+            }
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {}
+
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+    };
+
     private void startTimer(){
 
 
@@ -233,38 +296,56 @@ public class TimerFragment extends Fragment{
     }
     //where we write into the timer
     private void updateCountdownText(){
-        int minutes = (int) mTimeLeftInMillis / 1000 / 60;
         int seconds = (int) mTimeLeftInMillis / 1000 % 60;
+        int minutes = (int) mTimeLeftInMillis / 60000 % 60;
+        int hours = (int) mTimeLeftInMillis / 3600000;
 
+//        int seconds = (int) mTimeLeftInMillis / 1000 % 60;
+//        int minutes = seconds * 60;
+//        int hours = minutes * 60;
 
-        String timeLeftFormatted = String.format(Locale.getDefault(),"%02d:%02d", minutes, seconds);
+        String timeLeftFormatted = String.format(Locale.getDefault(),"%02d:%02d:%02d", hours, minutes, seconds);
 
         mTextViewCountdownTimer.setText(timeLeftFormatted);
         //Log.d(TAG, "Updated CountdownText");
+        Log.d(TAG, "Calc: " + hours + " + " + minutes + " + " + seconds);
     }
     private void createUserTimer(){
         long inputSecondsInMillis;
         long inputMinutesInMillis;
+        long inputHoursInMillis;
 
-        if(mSecondsEditText.getText().toString().equals("")){
+        String etext = mCombinedEditText.getText().toString();
+        String etextArray[] = new String[3];
+
+        if(mCombinedEditText.getText().toString().equals("")){
             inputSecondsInMillis = 0;
+            inputMinutesInMillis = 0;
+            inputHoursInMillis = 0;
         }
         else{
-            String woah = mSecondsEditText.getText().toString();
-            int dude = parseInt(woah);
-            inputSecondsInMillis = dude*1000;
-        }
+            etextArray = etext.split(":");
+            String arraySeconds = etextArray[2];
+            Log.d(TAG, "etextArray[2] "+ etextArray[2]);
+            String arrayMinutes = etextArray[1];
+            Log.d(TAG, "etextArray[1] "+ etextArray[1]);
+            String arrayHours = etextArray[0];
+            Log.d(TAG, "etextArray[0] "+ etextArray[0]);
 
-        if(mMinutesEditText.getText().toString().equals("")){
-            inputMinutesInMillis = 0;
-        }
-        else {
-            String woah2 = mMinutesEditText.getText().toString();
-            int dude2 = parseInt(woah2);
-            inputMinutesInMillis = dude2*60000;
-        }
+            int tranS = parseInt(arraySeconds);
+            inputSecondsInMillis = tranS*1000;
+            Log.d(TAG, "inputSecondsInMillis "+ inputSecondsInMillis);
 
-        mTimeAtCreationInMillis = inputSecondsInMillis+inputMinutesInMillis;
+            int tranM = parseInt(arrayMinutes);
+            inputMinutesInMillis = tranM*60000;
+            Log.d(TAG, "inputMinutesInMillis "+ inputMinutesInMillis);
+
+            int tranH = parseInt(arrayHours);
+            inputHoursInMillis = tranH*3600000;
+            Log.d(TAG, "inputHoursInMillis "+ inputHoursInMillis);
+
+        }
+        mTimeAtCreationInMillis = inputSecondsInMillis+inputMinutesInMillis+inputHoursInMillis;
         mTimeLeftInMillis = mTimeAtCreationInMillis;
 
         if(mTimerRunning){
