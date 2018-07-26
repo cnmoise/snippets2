@@ -153,6 +153,7 @@ public class HomeFragment extends Fragment {
         }
 
         if(temp_level <= MAX_LEVEL){
+
             toLevel = temp_level;
         }
         else
