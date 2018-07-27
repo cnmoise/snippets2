@@ -1,30 +1,20 @@
 package com.example.android.momapp;
 
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.drawable.ClipDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.Editable;
-import android.text.Selection;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -32,7 +22,7 @@ import java.util.Locale;
 
 import static java.lang.Integer.parseInt;
 
-public class TimerFragment extends Fragment{
+public class TimerFragment extends Fragment implements NewPresetDialog.NewPresetDialogListener{
 
     private static final long START_TIME_IN_MILLIS = 60000;
     private TextView mTextViewCountdownTimer;
@@ -58,14 +48,6 @@ public class TimerFragment extends Fragment{
     private static int progressBarTicker = 0;
     private static int pBarMax;
 
-    private EditText etPercent;
-    private ClipDrawable mImageDrawable;
-
-    // a field in your class
-    private int mLevel = 0;
-    private int fromLevel = 0;
-    private int toLevel = 0;
-
     public static final int MAX_LEVEL = 10000;
     public static final int LEVEL_DIFF = 100;
     public static final int DELAY = 30;
@@ -75,7 +57,6 @@ public class TimerFragment extends Fragment{
     private static final String TAG = "Claude Timer";
     private static final String LifeCycleTag = TAG + " Lifecycle";
     private static final String ActionTag = TAG + " Action";
-
 
 
     @Nullable
@@ -93,21 +74,7 @@ public class TimerFragment extends Fragment{
         View v = inflater.inflate(R.layout.fr_timer, container, false);
 
         mTextViewCountdownTimer = (TextView) v.findViewById(R.id.tv_timer);
-        mCombinedEditText = (EditText) v.findViewById(R.id.et_timer_entry_c);
-        mCombinedEditText.addTextChangedListener(mCombinedWatcher);
 
-        mCombinedEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                int position = mCombinedEditText.length();
-                if (hasFocus) {
-                    Log.d(TAG, "position " + position);
-                    mCombinedEditText.setSelection(mCombinedEditText.length());
-
-                }
-            }
-
-        });
 
 
 
@@ -147,15 +114,6 @@ public class TimerFragment extends Fragment{
         // COMPLETED (9) Set the GreenAdapter you created on mNumbersList
         mPresetList.setAdapter(mAdapter);
 
-        //lets users make their own timers
-        mUserTimerInput = (Button) v.findViewById(R.id.bt_timer_input);
-        mUserTimerInput.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                createUserTimer();
-            }
-        });
-
         //starts paused timer and pauses running timer
         mTimerStartPause = (Button) v.findViewById(R.id.bt_timer_start_pause);
         mTimerStartPause.setOnClickListener(new View.OnClickListener() {
@@ -186,19 +144,11 @@ public class TimerFragment extends Fragment{
         mNewPreset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Context context = this;
-//                Class destinationActivity = NewPresetActivity.class;
-//
-//                Intent startNewPresetIntent = new Intent(getActivity(), destinationActivity);
-//                startActivity(startNewPresetIntent);
-//
-//                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-//                builder.setMessage(R.string.dialog_message)
-//                        .setTitle(R.string.dialog_title);
-//                AlertDialog dialog = builder.create();
-
-                DialogFragment newFragment = new NewPresetFragment();
-                newFragment.show(getFragmentManager(), "missiles");
+                //ExampleDialog?
+                //Example of a ClassCastException
+                //we created a DialogFragment and cast it as a NewPresetDialog
+                NewPresetDialog PresetDialog = new NewPresetDialog();
+                PresetDialog.show(getFragmentManager(), "Look Ma' no tags");
 
             }
         });
@@ -208,48 +158,6 @@ public class TimerFragment extends Fragment{
 
         return v;
     }
-
-    //autofills colons for the users convenience
-    private TextWatcher mCombinedWatcher = new TextWatcher() {
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
-            String working = s.toString();
-            Log.d(TAG, "Before "+ before);
-            boolean isValid = true;
-            if (working.length()==2 && before ==0) {
-                working+=":";
-                mCombinedEditText.setText(working);
-                mCombinedEditText.setSelection(working.length());
-            }
-            else if (working.length()==5 && before ==0) {
-                working+=":";
-                mCombinedEditText.setText(working);
-                mCombinedEditText.setSelection(working.length());
-               //int currentYear = Calendar.getInstance().get(Calendar.YEAR);
-
-            }
-            else if (working.length()!=9) {
-                isValid = false;
-            }
-
-            if (!isValid) {
-                mCombinedEditText.setError(null);
-            } else {
-                mCombinedEditText.setError(null);
-            }
-
-        }
-
-        @Override
-        public void afterTextChanged(Editable s) {}
-
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
-    };
-
-
-
 
     private void startTimer(){
 
@@ -330,6 +238,7 @@ public class TimerFragment extends Fragment{
         //Log.d(TAG, "Updated CountdownText");
         Log.d(TAG, "Calc: " + hours + " + " + minutes + " + " + seconds);
     }
+
     private void createUserTimer(){
         long inputSecondsInMillis;
         long inputMinutesInMillis;
@@ -382,76 +291,6 @@ public class TimerFragment extends Fragment{
         }
     }
 
-    private Handler mUpHandler = new Handler();
-    private Runnable animateUpImage = new Runnable() {
-
-        @Override
-        public void run() {
-            doTheUpAnimation(fromLevel, toLevel);
-        }
-    };
-
-    private Handler mDownHandler = new Handler();
-    private Runnable animateDownImage = new Runnable() {
-
-        @Override
-        public void run() {
-            doTheDownAnimation(fromLevel, toLevel);
-        }
-    };
-
-
-    private void doTheUpAnimation(int fromLevel, int toLevel) {
-        mLevel += LEVEL_DIFF;
-        mImageDrawable.setLevel(mLevel);
-        if (mLevel <= toLevel) {
-            mUpHandler.postDelayed(animateUpImage, DELAY);
-        } else {
-            mUpHandler.removeCallbacks(animateUpImage);
-            //MainActivity.this.
-            fromLevel = toLevel;
-        }
-    }
-
-    private void doTheDownAnimation(int fromLevel, int toLevel) {
-        mLevel -= LEVEL_DIFF;
-        mImageDrawable.setLevel(mLevel);
-        if (mLevel >= toLevel) {
-            mDownHandler.postDelayed(animateDownImage, DELAY);
-        } else {
-            mDownHandler.removeCallbacks(animateDownImage);
-            //MainActivity.this.
-            fromLevel = toLevel;
-        }
-    }
-
-    public void onClickOk(View v) {
-        int temp_level = ((Integer.parseInt(etPercent.getText().toString())) * MAX_LEVEL) / 100;
-
-        if (toLevel == temp_level || temp_level > MAX_LEVEL) {
-            return;
-        }
-        toLevel = (temp_level <= MAX_LEVEL) ? temp_level : toLevel;
-        if (toLevel > fromLevel) {
-            // cancel previous process first
-            mDownHandler.removeCallbacks(animateDownImage);
-            //MainActivity.this.
-             fromLevel = toLevel;
-
-            mUpHandler.post(animateUpImage);
-        } else {
-            // cancel previous process first
-            mUpHandler.removeCallbacks(animateUpImage);
-            //MainActivity.this.
-            fromLevel = toLevel;
-
-            mDownHandler.post(animateDownImage);
-        }
-    }
-
-
-    //ANCHOR
-    //ANCHOR
 
     @Override
     public void onStart() {
@@ -506,4 +345,11 @@ public class TimerFragment extends Fragment{
         //outState.putString(LIFECYCLE_CALLBACKS_TEXT_KEY, lifecycleDisplayTextViewContents);
     }
 
+
+    @Override
+    public void passTimeFromDialog(String timeAsText) {
+        Log.d(LifeCycleTag, "Behold Dialog" + timeAsText);
+
+        
+    }
 }
