@@ -73,7 +73,7 @@ public class NewPresetDialog extends DialogFragment {
             public void onFocusChange(View v, boolean hasFocus) {
                 int position = mCombinedEditText.length();
                 if (hasFocus) {
-                    Log.d(TAG, "position " + position);
+                    //Log.d(TAG, "position " + position);
                     mCombinedEditText.setSelection(mCombinedEditText.length());
 
                 }
@@ -90,7 +90,7 @@ public class NewPresetDialog extends DialogFragment {
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             String working = s.toString();
-            Log.d(TAG, "Before "+ before);
+            //Log.d(TAG, "Before "+ before);
             boolean isValid = true;
             if (working.length()==2 && before ==0) {
                 working+=":";

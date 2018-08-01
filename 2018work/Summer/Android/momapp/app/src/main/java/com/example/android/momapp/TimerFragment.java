@@ -62,24 +62,12 @@ public class TimerFragment extends Fragment implements NewPresetDialog.NewPreset
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        if (savedInstanceState != null) {
-            //Restore the fragment's state here
-            Log.d(LifeCycleTag, "Fragment state here");
-            //mTimeLeftInMillis = savedInstanceState.get();
-
-            Fragment mContent = getFragmentManager().getFragment(savedInstanceState, "TimerFragment");
-        }
-
         //good practice, allows for referencing
         View v = inflater.inflate(R.layout.fr_timer, container, false);
 
         mTextViewCountdownTimer = (TextView) v.findViewById(R.id.tv_timer);
 
-
-
-
         //Creates Progress Bar & customizes it
-
         mProgressBar=(ProgressBar) v.findViewById(R.id.progressbar);
         mProgressBar.setProgress(progressBarTicker);
         Drawable draw = getResources().getDrawable(R.drawable.customprogressbar, null);
@@ -92,14 +80,6 @@ public class TimerFragment extends Fragment implements NewPresetDialog.NewPreset
         Log.d(TAG, "Max progress (start)"+ pBarMax);
         Log.d(TAG, "mTimeLeftInMillis "+ mTimeLeftInMillis);
         Log.d(TAG, "pbar prog "+ progressBarTicker);
-
-//        etPercent = (EditText) findViewById(R.id.etPercent);
-//
-//        ImageView img = (ImageView) findViewById(R.id.imageView1);
-//        mImageDrawable = (ClipDrawable) img.getDrawable();
-//        mImageDrawable.setLevel(0);
-
-
 
         //sets up RecyclerView & User Preset List
         mPresetList = (RecyclerView) v.findViewById(R.id.rv_presets);
@@ -119,6 +99,9 @@ public class TimerFragment extends Fragment implements NewPresetDialog.NewPreset
         mTimerStartPause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //String testtxt = getArguments().getString("params");
+               // Log.d(TAG, "Suffering "+ testtxt);
+
                     if(mTimerRunning){
                         pauseTimer();
                     } else{
@@ -144,14 +127,24 @@ public class TimerFragment extends Fragment implements NewPresetDialog.NewPreset
         mNewPreset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //ExampleDialog?
-                //Example of a ClassCastException
-                //we created a DialogFragment and cast it as a NewPresetDialog
+
                 NewPresetDialog PresetDialog = new NewPresetDialog();
                 PresetDialog.show(getFragmentManager(), "Look Ma' no tags");
-
             }
         });
+
+        Fragment mContent = getFragmentManager().findFragmentByTag("SourceFragTag");
+        if(mContent != null){
+            Log.d(TAG, "Fragment Tag works (Newpreset click)");
+            Log.d(TAG, "Frag contents " + mContent.getArguments().getString("params"));
+
+            String timeFromDialog = mContent.getArguments().getString("params");
+
+            createUserTimer(timeFromDialog);
+        }
+        else {
+            Log.d(TAG, "mContentNull (Newpreset click)");
+        }
 
         updateCountdownText();
         Log.d(LifeCycleTag, "onCreateView");
@@ -239,15 +232,15 @@ public class TimerFragment extends Fragment implements NewPresetDialog.NewPreset
         Log.d(TAG, "Calc: " + hours + " + " + minutes + " + " + seconds);
     }
 
-    private void createUserTimer(){
+    private void createUserTimer(String etext){
         long inputSecondsInMillis;
         long inputMinutesInMillis;
         long inputHoursInMillis;
 
-        String etext = mCombinedEditText.getText().toString();
+        //String etext = mCombinedEditText.getText().toString();
         String etextArray[] = new String[3];
 
-        if(mCombinedEditText.getText().toString().equals("")){
+        if(etext.equals("")){
             inputSecondsInMillis = 0;
             inputMinutesInMillis = 0;
             inputHoursInMillis = 0;

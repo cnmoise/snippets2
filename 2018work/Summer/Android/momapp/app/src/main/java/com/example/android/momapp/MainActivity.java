@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity implements NewPresetDialog.N
 
     private TextView mTextMessage;
     private TextView mCountdownTimer;
+    private String mTimeFromDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,5 +58,19 @@ public class MainActivity extends AppCompatActivity implements NewPresetDialog.N
     @Override
     public void passTimeFromDialog(String timeAsText) {
         Log.d("claude Main", "timeAsText " + timeAsText);
+//        mTimeFromDialog = timeAsText;
+        Bundle bundle = new Bundle();
+        bundle.putString("params", timeAsText);
+
+
+        TimerFragment activeFrag = new TimerFragment();
+        activeFrag.setArguments(bundle);
+
+        //
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.timer_fragment_container, activeFrag, "SourceFragTag")
+                .commit();
+        Log.d("claude Main", "Transaction Made");
+
     }
 }
