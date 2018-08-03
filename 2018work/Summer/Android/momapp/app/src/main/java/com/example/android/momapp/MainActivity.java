@@ -55,12 +55,15 @@ public class MainActivity extends AppCompatActivity implements NewPresetDialog.N
         }
     };
 
+    //an example of a callback function
     @Override
     public void passTimeFromDialog(String timeAsText) {
         Log.d("claude Main", "timeAsText " + timeAsText);
 //        mTimeFromDialog = timeAsText;
         Bundle bundle = new Bundle();
         bundle.putString("params", timeAsText);
+        //bundle.putBoolean("mTimerRunning", true);
+
 
 
         TimerFragment activeFrag = new TimerFragment();
@@ -68,9 +71,10 @@ public class MainActivity extends AppCompatActivity implements NewPresetDialog.N
 
         //
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.timer_fragment_container, activeFrag, "SourceFragTag")
+                .replace(R.id.timer_fragment_container, activeFrag, "SourceFragTag")
                 .commit();
         Log.d("claude Main", "Transaction Made");
+        //class.TimerFragment
 
     }
 }

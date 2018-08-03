@@ -1,5 +1,6 @@
 package com.example.android.momapp;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -62,6 +63,10 @@ public class TimerFragment extends Fragment implements NewPresetDialog.NewPreset
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        Log.d(LifeCycleTag, "onCreateView");
+        Log.d(TAG, "is mTimerRunning onCreateView" + mTimerRunning);
+
+
         //good practice, allows for referencing
         View v = inflater.inflate(R.layout.fr_timer, container, false);
 
@@ -90,8 +95,6 @@ public class TimerFragment extends Fragment implements NewPresetDialog.NewPreset
 
         // The PresetAdapter is responsible for displaying each item in the list.
         mAdapter = new PresetAdapter(NUM_LIST_ITEMS);
-
-        // COMPLETED (9) Set the GreenAdapter you created on mNumbersList
         mPresetList.setAdapter(mAdapter);
 
         //starts paused timer and pauses running timer
@@ -99,9 +102,6 @@ public class TimerFragment extends Fragment implements NewPresetDialog.NewPreset
         mTimerStartPause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //String testtxt = getArguments().getString("params");
-               // Log.d(TAG, "Suffering "+ testtxt);
-
                     if(mTimerRunning){
                         pauseTimer();
                     } else{
@@ -109,9 +109,6 @@ public class TimerFragment extends Fragment implements NewPresetDialog.NewPreset
                     }
             }
         }
-
-
-
         );
 
         mTimerReset = v.findViewById(R.id.bt_timer_reset);
@@ -122,23 +119,27 @@ public class TimerFragment extends Fragment implements NewPresetDialog.NewPreset
             }
         });
 
-        //creates new Presets
-        mNewPreset = v.findViewById(R.id.bt_save_new_preset);
-        mNewPreset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                NewPresetDialog PresetDialog = new NewPresetDialog();
-                PresetDialog.show(getFragmentManager(), "Look Ma' no tags");
-            }
-        });
 
+        //Log.d(TAG, "before mContent mTimerRunning?" + mTimerRunning);
+        //Non-critical bug: creating multiple presets won't cancel previous timers
         Fragment mContent = getFragmentManager().findFragmentByTag("SourceFragTag");
         if(mContent != null){
             Log.d(TAG, "Fragment Tag works (Newpreset click)");
             Log.d(TAG, "Frag contents " + mContent.getArguments().getString("params"));
 
+            //Log.d(TAG, "mContent mTimerRunning?" + mTimerRunning);
+
+
             String timeFromDialog = mContent.getArguments().getString("params");
+            //mTimerRunning = mContent.getArguments().getBoolean("mTimerRunning");
+            Log.d(TAG, "mTimerRunning set from dialog " + mTimerRunning);
+
+//            if(mTimerRunning){
+//                mCountdownTimer.cancel();
+//                Log.d(TAG, "mCountdownTimer.canceled before new timer created from Dialog");
+//
+//            }
 
             createUserTimer(timeFromDialog);
         }
@@ -146,15 +147,30 @@ public class TimerFragment extends Fragment implements NewPresetDialog.NewPreset
             Log.d(TAG, "mContentNull (Newpreset click)");
         }
 
+        //creates new Presets
+        mNewPreset = v.findViewById(R.id.bt_save_new_preset);
+        mNewPreset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "mTimerRunning New Preset? " + mTimerRunning);
+//                if(mTimerRunning){
+//                    mCountdownTimer.cancel();
+//                    Log.d(TAG, "mCountdownTimer.canceled before new timer created from Dialog");
+//                }
+                //pauseTimer();
+
+                NewPresetDialog PresetDialog = new NewPresetDialog();
+                PresetDialog.show(getFragmentManager(), "Look Ma' no tags");
+            }
+        });
+
         updateCountdownText();
-        Log.d(LifeCycleTag, "onCreateView");
+
 
         return v;
     }
 
     private void startTimer(){
-
-
         //how many times the onTick method will be called
         mCountdownTimer = new CountDownTimer(mTimeLeftInMillis, 1000){
             @Override
@@ -170,11 +186,15 @@ public class TimerFragment extends Fragment implements NewPresetDialog.NewPreset
 
             @Override
             public void onFinish() {
+                Log.d(ActionTag, "onFinish() called mTimerRunning " + mTimerRunning);
                 mTimerRunning = false;
+
+
                 mTimerStartPause.setText("Start");
                 mTimerStartPause.setVisibility(View.INVISIBLE);
                 mTimerReset.setVisibility(View.VISIBLE);
 
+                Log.d(ActionTag, "onFinish() called mTimerRunning " + mTimerRunning);
 //                progressBarTicker++;
 //                mProgressBar.setProgress(100);
             }
@@ -184,6 +204,8 @@ public class TimerFragment extends Fragment implements NewPresetDialog.NewPreset
         Log.d(ActionTag, "Timer Started");
 
         mTimerRunning = true;
+        Log.d(ActionTag, ">startTimer >mTimerRunning " + mTimerRunning);
+
         mTimerStartPause.setText("Pause");
         mTimerReset.setVisibility(View.INVISIBLE);
 
@@ -191,7 +213,6 @@ public class TimerFragment extends Fragment implements NewPresetDialog.NewPreset
     }
     private void pauseTimer(){
         mCountdownTimer.cancel();
-
 
         mTimerRunning = false;
         //how to do it w resources?
@@ -221,14 +242,10 @@ public class TimerFragment extends Fragment implements NewPresetDialog.NewPreset
         int minutes = (int) mTimeLeftInMillis / 60000 % 60;
         int hours = (int) mTimeLeftInMillis / 3600000;
 
-//        int seconds = (int) mTimeLeftInMillis / 1000 % 60;
-//        int minutes = seconds * 60;
-//        int hours = minutes * 60;
-
         String timeLeftFormatted = String.format(Locale.getDefault(),"%02d:%02d:%02d", hours, minutes, seconds);
 
         mTextViewCountdownTimer.setText(timeLeftFormatted);
-        //Log.d(TAG, "Updated CountdownText");
+
         Log.d(TAG, "Calc: " + hours + " + " + minutes + " + " + seconds);
     }
 
@@ -237,7 +254,6 @@ public class TimerFragment extends Fragment implements NewPresetDialog.NewPreset
         long inputMinutesInMillis;
         long inputHoursInMillis;
 
-        //String etext = mCombinedEditText.getText().toString();
         String etextArray[] = new String[3];
 
         if(etext.equals("")){
@@ -253,6 +269,8 @@ public class TimerFragment extends Fragment implements NewPresetDialog.NewPreset
             Log.d(TAG, "etextArray[1] "+ etextArray[1]);
             String arrayHours = etextArray[0];
             Log.d(TAG, "etextArray[0] "+ etextArray[0]);
+
+
 
             int tranS = parseInt(arraySeconds);
             inputSecondsInMillis = tranS*1000;
@@ -270,25 +288,36 @@ public class TimerFragment extends Fragment implements NewPresetDialog.NewPreset
         mTimeAtCreationInMillis = inputSecondsInMillis+inputMinutesInMillis+inputHoursInMillis;
         mTimeLeftInMillis = mTimeAtCreationInMillis;
 
+        Log.d(ActionTag, "Created User Timer");
+        updateCountdownText();
+        //startTimer();
+        Log.d(ActionTag, "TimerRunning before createUserTime? " + mTimerRunning);
+
         if(mTimerRunning){
             pauseTimer();
             resetTimer();
             startTimer();
-
-            Log.d(ActionTag, "pauseTimer();" + "resetTimer();" + "startTimer();");
-        } else {
+        }
+        else{
             resetTimer();
             startTimer();
-
-            Log.d(ActionTag, "resetTimer();" + "startTimer();");
         }
+        Log.d(ActionTag, "resetTimer(); startTimer();");
     }
+
+//    private void sendData(){
+//        Intent i = new Intent(getActivity().getBaseContext(), MainActivity.class);
+//
+//        i.putExtra("bool", mTimerRunning);
+//    }
 
 
     @Override
     public void onStart() {
         super.onStart();
         Log.d(LifeCycleTag, "onStart");
+        Log.d(LifeCycleTag, "mTimerRunning" + mTimerRunning);
+
     }
 
     @Override
@@ -302,8 +331,12 @@ public class TimerFragment extends Fragment implements NewPresetDialog.NewPreset
     public void onResume() {
         super.onResume();
         Log.d(LifeCycleTag, "onResume");
+        Log.d(LifeCycleTag, "mTimerRunning" + mTimerRunning);
+
 
         updateCountdownText();
+        Log.d(LifeCycleTag, "mTimerRunning" + mTimerRunning);
+
     }
 
     @Override
@@ -329,13 +362,10 @@ public class TimerFragment extends Fragment implements NewPresetDialog.NewPreset
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        //reffering to THIS fragment
-        getFragmentManager().putFragment(outState, "TimerFragment", this);
         Log.d(LifeCycleTag, "onSaveInstanceState");
 
-
-        //String lifecycleDisplayTextViewContents = mLifecycleDisplay.getText().toString();
-        //outState.putString(LIFECYCLE_CALLBACKS_TEXT_KEY, lifecycleDisplayTextViewContents);
+        //reffering to THIS fragment
+        getFragmentManager().putFragment(outState, "TimerFragment", this);
     }
 
 
