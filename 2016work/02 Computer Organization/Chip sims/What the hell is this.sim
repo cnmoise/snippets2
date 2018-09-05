@@ -1,0 +1,9 @@
+;adds together all these values
+lxi h, 0020
+mvi b, 05
+mvi a, 00
+L1: add m ;add from memory
+inx h
+dcr b
+jnz L1
+hlt
