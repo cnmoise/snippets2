@@ -1,0 +1,19 @@
+John Smith 87.3 90.2 75.3
+
+Cherry Pie 34.5 86.8 23.2
+
+Banana Split 76.2 99.9 100.0
+
+Yoko Ono 12.6 56.7 73.9
+
+Happy Gilmore 77.1 77.2 77.3
+
+Sam Adams 53.1 71.9 65.8
+
+Pat Mann 391.3 100 29
+
+Oliva Munn -3.49 289.2 104
+
+Bernie Sanders 100 -100 100
+
+Winston Churchill 2 5 9.5
