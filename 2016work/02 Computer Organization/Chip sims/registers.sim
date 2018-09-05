@@ -1,0 +1,7 @@
+lxi h, 0020
+mvi b, 09
+L1: mov m, b
+inx h; H to L represents the whole thing
+dcr b
+jnz L1
+hlt

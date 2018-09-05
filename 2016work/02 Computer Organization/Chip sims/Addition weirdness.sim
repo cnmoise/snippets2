@@ -1,0 +1,7 @@
+mvi a, 00 ; because a = a + a
+mvi b, 05
+mvi c, 03
+L1: add c ;arithmatic ; you need to have the accumulator be separate from the thing that you add, otherwise you get addition weirdness
+dcr b
+jnz L1
+hlt 

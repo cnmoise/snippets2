@@ -1,0 +1,26 @@
+P1.
+Q2. C. 4950
+Q11. A
+Q16. D
+
+P2.?
+a. If the elements are unsorted, the avg comparison number is N/2
+100/2 = 50 comparisons
+b. Still N/2
+c. Still N/2
+
+P3.
+A True, stated in powerpoint
+B False, explicity stated that it is O(Log N)
+C False, not necesary, but convenient for quicker results
+D True, it seems counterintuitive but im not sure if it would directly harm
+runtimes
+
+P4. D, C, A
+
+P5. 
+V(StateGraph) = {Oregon, Alaska, Texas, Hawaii, Vermont, New York, Callifornia}
+E(StateGraph) =
+{(Alaska,Oregon),(Vermont,Alaska),(Vermont,New York),(Texas,Vermont),
+(Texas,Hawaii),(Hawaii,Texas),(Hawaii,Alaska),(Hawaii,New York),
+(Hawaii,Callifornia),(Vermont,Callifornia)}

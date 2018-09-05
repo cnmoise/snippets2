@@ -1,0 +1,42 @@
+P1.
+A. C.getNext().getInfo();
+B. B.getBack().getInfo();
+C. A.getNext();//?
+D. C.getBack();//?
+E. B.getBack().getBack();
+F. C.getBack().getBack();
+G. A.getBack();
+
+
+P2.
+By having header and trailer nodes we avoid ever having to deal with the
+special cases that arise from adding or removing from the end of a list.
+This simplifies list processing.
+
+P3.
+a. The more levels a binary tree has(and the more skewed it is) the more 
+operations the search tree performs, lowering efficiency
+b. 100 levels
+c. 7 levels
+
+P4.
+A. MKQ
+B. BDJMPN
+C. There is space for 8 total nodes 
+D. There is space for 16 total nodes 
+E. BDJKMNPQRTYW
+F. QKDBJMPNTRYW
+G. BJDNPMKRYTWQ
+
+P5. Time for some ASCII art
+
+.......50.......
+....../..\......
+....26....72.....
+.. /........\...
+..12........96..
+./.\......./..\..
+.9..15...94...107.
+..../...........
+..13............
+

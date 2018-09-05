@@ -1,0 +1,14 @@
+mvi a, 03
+mvi b, 05
+L1: add a ;arithmatic
+dcr b
+jnz L1
+hlt 
+; 3*5 ;b = 3; c = 5
+mvi c, 05
+mvi a, 00
+mvi b, 03
+L2: add b
+dcr c
+jnz L2
+hlt

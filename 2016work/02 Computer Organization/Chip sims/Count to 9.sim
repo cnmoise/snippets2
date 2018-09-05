@@ -1,0 +1,6 @@
+mvi a, 00
+mvi b, 09
+L1: inr a
+dcr b
+jnz L1
+hlt
