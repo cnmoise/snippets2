@@ -25,7 +25,6 @@ public class AverageTemperature
             div++;
             tNum = tNum + uNum;
             isExec = true;
-            //Why is it that when I had avg = tNum/div here I was getting bad answers? 
          }         
       }
       while (uNum != 999);

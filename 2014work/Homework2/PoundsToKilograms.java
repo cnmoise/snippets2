@@ -15,7 +15,5 @@ public class PoundsToKilograms
    poundAmount = keyboard.nextDouble();
    kiloAmount = .454 * poundAmount;
    System.out.println("In kilograms, that is: " + kiloAmount + ".");
-   //Perhaps I'm mistaken, but the output window in the example
-   //showed a period, so I also placed a period
-   }
+      }
 }

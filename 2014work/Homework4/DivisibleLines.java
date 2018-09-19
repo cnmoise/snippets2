@@ -1,6 +1,4 @@
 //Author: Claudiu Moise
-//Tried to use breakpoints because the loop was doing strange things
-//Could use some help dealing with the unintuitive breakpoints
 import java.util.Scanner;
 
 public class DivisibleLines
