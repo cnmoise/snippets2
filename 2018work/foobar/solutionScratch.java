@@ -1,7 +1,40 @@
 //Author: Claudiu Moise
-// 
-// Given two almost identical lists of prisoner IDs x and y where one of the lists contains an additional ID, 
-// write a function answer(x, y) that compares the lists and returns the additional ID 
+//
+/* 
+Gearing Up for Destruction
+==========================
+
+   As Commander Lambda's personal assistant, you've been assigned the task of configuring the LAMBCHOP doomsday device's axial orientation gears.
+   It should be pretty simple - just add gears to create the appropriate rotation ratio. But the problem is, due to the layout of the LAMBCHOP
+   and the complicated system of beams and pipes supporting it, the pegs that will support the gears are fixed in place.
+   
+   The LAMBCHOP's engineers have given you lists identifying the placement of groups of pegs along various support beams.
+   You need to place a gear on each peg (otherwise the gears will collide with unoccupied pegs).
+   The engineers have plenty of gears in all different sizes stocked up, so you can choose gears of any size,
+   from a radius of 1 on up.
+   
+   // =====
+   Your goal is to build a system where the last gear rotates at twice the rate (in revolutions per minute, or rpm)
+   of the first gear, no matter the direction. Each gear (except the last) touches and turns the gear on the next peg to the right.
+   // =====
+   
+   Given a list of distinct positive integers named pegs representing the location of each peg along the
+   support beam, write a function answer(pegs) which, if there is a solution,
+   =====
+   returns a list of two positive integers a and b representing the numerator and denominator of the first gear's radius in its simplest
+   form in order to achieve the goal above, such that radius = a/b.
+   
+   The ratio a/b should be greater than or equal to 1. Not all support configurations will necessarily be
+   capable of creating the proper rotation ratio, so if the task is impossible, the function answer(pegs) should return the list [-1, -1].
+
+   For example, if the pegs are placed at [4, 30, 50], then the first gear could have a radius of 12,
+   the second gear could have a radius of 14, and the last one a radius of 6. Thus, the last gear would
+   rotate twice as fast as the first one. In this case, pegs would be [4, 30, 50] and answer(pegs) should return [12, 1].
+
+   The list pegs will be given sorted in ascending order and will contain at least 2 and no more than 20 distinct positive
+   integers, all between 1 and 10000 inclusive. 
+
+*/
 
 import java.util.*;
 
@@ -9,199 +42,58 @@ public class solutionScratch
 {
 	public static void main(String[] args)
 	{
-      // List<Integer> x = Arrays.asList(13, 5, 6, 2, 5);
-//       List<Integer> y = Arrays.asList(5, 2, 5, 13);
-//       
-//       List<Integer> z = Arrays.asList(14, 27, 1, 4, 2, 50, 3, 1);
-//       List<Integer> z2 = Arrays.asList(2, 4, -4, 3, 1, 1, 14, 27, 50);
-// 
-//       System.out.println("\nOdd one out: " + answer(x, y));
-//       
-//       System.out.println("\nOdd one out: " + answer(z, z2));
-      
-      System.out.println("\nWith Arrays ");
-
-      
-      int[] xA2 = {13, 5, 6, 2, 5};
-      int[] yA2 = {5, 2, 5, 13};
-      int[] zA2 = {14, 27, 1, 4, 2, 50, 3, 1};
-      int[] z2A2 = {2, 4, -4, 3, 1, 1, 14, 27, 50};
-      
-      System.out.println("\nOdd one out: " + answer2(xA2, yA2));
-      System.out.println("\nOdd one out: " + answer2(zA2, z2A2)); 
+      int[] pegs = {4, 30, 50};
+      int[] pegs2 = {12, 54, 84, 108};
+            
+      System.out.println("Cog Ratio " + answer(pegs2));
    }
-   
-  public static int answer(List<Integer> x, List<Integer> y){
-  
-      System.out.println("\nUnsorted x");
-      for (int i=0; i<x.size(); i++) 
-            System.out.print(x.get(i)+" ");
-     
-      QuickSortV2(x, 0, x.size()-1);
       
-      System.out.println("\nQSx");
-      for (int i=0; i<x.size(); i++) 
-            System.out.print(x.get(i)+" ");
-     
-     
-      System.out.println("\nUnsorted y");
-      for (int i=0; i<y.size(); i++) 
-            System.out.print(y.get(i)+" ");     
-    
-      QuickSortV2(y, 0, y.size()-1);
+public static int[] answer(int[] pegs){
+      int[] pegdist = new int [pegs.length];
+      //rows = gears position on the beam
+      //colums = possible radii
+      int[][] gears = new int [pegs.length][];
       
-      System.out.println("\nQSy");
-      for (int i=0; i<y.size(); i++) 
-            System.out.print(y.get(i)+" ");
-            
-      for(int i=0; i+1 <= x.size() && i+1 <= y.size(); i++){
-         
-         if (x.get(i) != y.get(i)){
-         
-            // System.out.println("\nxlist " + x.get(i) + " ylist " + y.get(i));
-            if (y.size() < x.size())
-               return x.get(i);
-            else
-               return y.get(i);
-         }
-            
+      //negligible for O() time
+      for(int i= 0; i+1 < pegs.length; i++){
+         pegdist[i] = pegs[i+1] - pegs[i];
+         gears[i] = new int[pegdist[i]];
+         System.out.println("pegdist[i] " + pegdist[i]);
+         System.out.println("gears[i].length " + gears[i].length);
       }
-            
-      return -1;
-  }
-  
-  public static int answer2(int[] x, int[] y){
-  
-      System.out.println("\nUnsorted x");
-      for (int i=0; i<x.length; i++) 
-            System.out.print(x[i]+" ");
-     
-      QuickSortV4(x, 0, x.length-1);
       
-      System.out.println("\nQSx");
-      for (int i=0; i<x.length; i++) 
-            System.out.print(x[i]+" ");
-     
-     
-      System.out.println("\nUnsorted y");
-      for (int i=0; i<y.length; i++) 
-            System.out.print(y[i]+" ");     
-    
-      QuickSortV4(y, 0, y.length-1);
-      
-      System.out.println("\nQSy");
-      for (int i=0; i<y.length; i++) 
-            System.out.print(y[i]+" ");
             
-      for(int i=0; i+1 <= x.length && i+1 <= y.length; i++){
+      for(int j= 0; j+1 < gears.length; j++){
          
-         if (x[i] != y[i]){
-         
-            // System.out.println("\nxlist " + x.get(i) + " ylist " + y.get(i));
-            if (y.length < x.length)
-               return x[i];
-            else
-               return y[i];
-         }
-            
-      }
-            
-      return -1;
-  }
-  
-   
-   public static void QuickSortV2(List<Integer> inList, int low, int high) 
-    { 
-        if (low < high) 
-        { 
-            /* pi is partitioning index, arr[pi] is  
-              now at right place */
-            int pi = partition(inList, low, high); 
-  
-            // Recursively sort elements before 
-            // partition and after partition 
-            QuickSortV2(inList, low, pi-1); 
-            QuickSortV2(inList, pi+1, high); 
-        } 
-    }
-   
-   public static int partition(List<Integer> inList, int low, int high) 
-    { 
-        int pivot = inList.get(high);  
-        int i = (low-1); // index of smaller element 
-        int temp = 0;
-        for (int j=low; j<high; j++) 
-        { 
-            // If current element is smaller than or 
-            // equal to pivot 
-            if (inList.get(j) <= pivot) 
-            { 
-                i++; 
-  
-//                ToFill.get(Position) = Value
-//                Change to
-//                ToFill.set(Position, Value);
-  
-                // swap arr[i] and arr[j] 
-                temp = inList.get(i); 
-                inList.set(i, inList.get(j)); 
-                inList.set(j, temp); 
+         //initializes our cogs with potential radii
+         if (j % 2 == 0){
+               System.out.println("Even j " + j);
+               gears[j] = pegdist[j]-1;
+               gears[j+1] = pegdist[j]-gears[j];
+               
+               System.out.println("gears[j] " + gears[j]);
+               System.out.println("gears[j+1] " + gears[j+1]);
+               System.out.println("===== Starting Iteration =====");
+               
+               for(int k = 1; k+1 < pegdist[j];k++){  
+                  gears[j] = gears[j]-1;
+                  gears[j+1] = gears[j+1]+1;
+                  
+                  System.out.println("k " + k);
+                  System.out.println("gears[j] " + gears[j]);
+                  System.out.println("gears[j+1] " + gears[j+1]);
+               }
             }
-        } 
-        
-  
-        // swap arr[i+1] and arr[high] (or pivot) 
-        temp = inList.get(i+1); 
-        inList.set(i+1, inList.get(high)); 
-        inList.set(high, temp);
-
-        return i+1; 
-    }
-    
-    public static int partition2(int arr[], int low, int high) 
-    { 
-        int pivot = arr[high];  
-        int i = (low-1); // index of smaller element 
-        for (int j=low; j<high; j++) 
-        { 
-            // If current element is smaller than or 
-            // equal to pivot 
-            if (arr[j] <= pivot) 
-            { 
-                i++; 
-  
-                // swap arr[i] and arr[j] 
-                int temp = arr[i]; 
-                arr[i] = arr[j]; 
-                arr[j] = temp; 
-            } 
-        } 
-  
-        // swap arr[i+1] and arr[high] (or pivot) 
-        int temp = arr[i+1]; 
-        arr[i+1] = arr[high]; 
-        arr[high] = temp; 
-  
-        return i+1; 
-    }
-    
-    /* The main function that implements QuickSort() 
-      arr[] --> Array to be sorted, 
-      low  --> Starting index, 
-      high  --> Ending index */
-    public static void QuickSortV4(int arr[], int low, int high) 
-    { 
-        if (low < high) 
-        { 
-            /* pi is partitioning index, arr[pi] is  
-              now at right place */
-            int pi = partition2(arr, low, high); 
-  
-            // Recursively sort elements before 
-            // partition and after partition 
-            QuickSortV4(arr, low, pi-1); 
-            QuickSortV4(arr, pi+1, high); 
-        } 
-    }
-    
+            else{
+               System.out.println("Can't even j " + j);
+               gears[j] = pegdist[j-1]-gears[j-1];
+               gears[j+1] = pegdist[j]-gears[j];
+            }
+      
+      
+          
+      }      
+      
+      return pegdist;
+   }
 }
