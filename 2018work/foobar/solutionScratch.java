@@ -52,6 +52,9 @@ public static int[] answer(int[] pegs){
       int[] pegdist = new int [pegs.length];
       //rows = gears position on the beam
       //colums = possible radii
+      //int[][] gears = new int [pegs.length][10000];
+      
+      //sloppy
       int[][] gears = new int [pegs.length][];
       
       //negligible for O() time
@@ -61,39 +64,133 @@ public static int[] answer(int[] pegs){
          System.out.println("pegdist[i] " + pegdist[i]);
          System.out.println("gears[i].length " + gears[i].length);
       }
+      //to alot space for the very last gear radii array
+      gears[gears.length-1] = new int[pegdist[pegdist.length-1]];
+      
+      System.out.println("pegdist[pegdist.length-1] " + pegdist[pegdist.length-1]);
+      System.out.println("gears[gears.length-1].length " + gears[gears.length-1].length);            
+
+      for(int j= 0; j < gears.length; j++){
+         
+         //initializes our cogs with potential radii
+               System.out.println("Index j " + j);
+               System.out.println("pegdist[j] " + pegdist[j]);
+               System.out.println("gears[j].length " + gears[j].length);
+               
+               
+               gears[j][0] = pegdist[j]-1;
+//                gears[j+1][0] = pegdist[j]-1;
+               
+               System.out.println("gears[j] " + gears[j][0]);
+//                System.out.println("gears[j+1] " + gears[j+1][0]);
+               System.out.println("===== Starting Iteration =====");
+               
+               for(int k = 0; k+1 < pegdist[j];k++){  
+                  gears[j][k+1] = gears[j][k]-1;
+                  //gears[j+1][k+1] = gears[j][k]-1;
+                  
+                  System.out.println("k " + k);
+                  System.out.println("gears[j][k] " + gears[j][k]);
+//                   System.out.println("gears[j+1][k] " + gears[j+1][k]);
+      }
+      
+      
+          
+      }
+      System.out.println("=========== Displaying all lists ======= ");
+
+      for(int j = 0; j < gears.length; j++){
+         System.out.print("Gear" + "["+ j +"]: ");
+         for(int k = 0; gears[j][k] != 0; k++){
+            System.out.print(gears[j][k] + ", ");
+         }
+         System.out.println("");
+      }
+      
+      
+      return pegdist;
+   }
+   
+   public static void IterativeBinarySearch(int[] Arr, int goal){
+      int first = 0;
+      int last = Arr.length-1;
+      
+      while (first < last){
+         int mid = (first + last)/2;
+         
+         if(goal < Arr[mid]){
+            last = mid-1;
+         }
+         else if(goal > Arr[mid]){
+            first = mid+1;
+         }
+         else{
+            System.out.println("Goal: " + goal);
+         }
+      }
+   }
+}
+
+
+/*
+public static int[] answer(int[] pegs){
+      int[] pegdist = new int [pegs.length];
+      //rows = gears position on the beam
+      //colums = possible radii
+      int[][] gears = new int [pegs.length][10000];
+      
+      //negligible for O() time
+      for(int i= 0; i+1 < pegs.length; i++){
+         pegdist[i] = pegs[i+1] - pegs[i];
+         //gears[i] = new int[pegdist[i]];
+         System.out.println("pegdist[i] " + pegdist[i]);
+         //System.out.println("gears[i].length " + gears[i].length);
+      }
       
             
       for(int j= 0; j+1 < gears.length; j++){
          
          //initializes our cogs with potential radii
-         if (j % 2 == 0){
+//          if (j % 2 == 0){
                System.out.println("Even j " + j);
-               gears[j] = pegdist[j]-1;
-               gears[j+1] = pegdist[j]-gears[j];
-               
-               System.out.println("gears[j] " + gears[j]);
-               System.out.println("gears[j+1] " + gears[j+1]);
+               gears[j][0] = pegdist[j]-1;
+               //init with minus
+               //gears[j+1][0] = pegdist[j]-gears[j][0];
+                              
+               System.out.println("gears[j] " + gears[j][0]);
+               System.out.println("gears[j+1] " + gears[j+1][0]);
                System.out.println("===== Starting Iteration =====");
                
-               for(int k = 1; k+1 < pegdist[j];k++){  
-                  gears[j] = gears[j]-1;
-                  gears[j+1] = gears[j+1]+1;
+               for(int k = 0; k+1 < pegdist[j];k++){  
+                  gears[j][k+1] = gears[j][k]-1;
+                  //For counting up
+                  //gears[j+1][k+1] = gears[j+1][k]+1;
                   
                   System.out.println("k " + k);
-                  System.out.println("gears[j] " + gears[j]);
-                  System.out.println("gears[j+1] " + gears[j+1]);
-               }
-            }
-            else{
-               System.out.println("Can't even j " + j);
-               gears[j] = pegdist[j-1]-gears[j-1];
-               gears[j+1] = pegdist[j]-gears[j];
-            }
+                  System.out.println("gears[j][k] " + gears[j][k]);
+                  System.out.println("gears[j+1][k] " + gears[j+1][k]);
+               // }
+//             }
+     //        else{
+//                System.out.println("Can't even j " + j);
+      }
       
       
           
-      }      
+      }
+      System.out.println("=========== Displaying all lists ======= ");
+
+      for(int j = 0; j < gears.length; j++){
+         System.out.print("Gear" + "["+ j +"]: ");
+         for(int k = 0; gears[j][k] != 0; k++){
+            System.out.print(gears[j][k] + ", ");
+         }
+         System.out.println("");
+      }
+      
       
       return pegdist;
    }
-}
+
+
+*/
