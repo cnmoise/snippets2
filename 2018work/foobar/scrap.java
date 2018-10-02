@@ -38,7 +38,7 @@ Gearing Up for Destruction
 
 import java.util.*;
 
-public class solutionScratch2
+public class scrap
 {
 	public static void main(String[] args)
 	{
@@ -106,26 +106,10 @@ public class solutionScratch2
       }
       
       //mathematically only 2 denominators possible
-      if(even){
+      if(even)
+         FirstGearRad = 2*sum/3;
+      else
          FirstGearRad = 2*sum;
-         if(FirstGearRad % 3 == 0){
-            FirstGearRad=FirstGearRad/3;
-            spoof[0] = FirstGearRad;
-            spoof[1] = 1;
-         }
-         else{
-            spoof[0] = FirstGearRad;
-            spoof[1] = 3;
-         }
-         //             /3
-         
-         }
-      else{
-         FirstGearRad = 2*sum;
-         
-         spoof[0] = FirstGearRad;
-         spoof[1] = 1;
-         }
          
       int curRad = FirstGearRad;
       
@@ -143,13 +127,13 @@ public class solutionScratch2
       
       //mathematically only 2 denominators possible
       if (even){
-         // spoof[0] = FirstGearRad;
-//          spoof[1] = 3;
+         spoof[0] = FirstGearRad;
+         spoof[1] = 1;
          return spoof;
       }
       else{
-         // spoof[0] = FirstGearRad;
-//          spoof[1] = 1;
+         spoof[0] = FirstGearRad;
+         spoof[1] = 3;
          return spoof;
          }
       
