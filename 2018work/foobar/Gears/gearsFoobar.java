@@ -27,6 +27,8 @@ Gearing Up for Destruction
    The ratio a/b should be greater than or equal to 1. Not all support configurations will necessarily be
    capable of creating the proper rotation ratio, so if the task is impossible, the function answer(pegs) should return the list [-1, -1].
 
+
+
    For example, if the pegs are placed at [4, 30, 50], then the first gear could have a radius of 12,
    the second gear could have a radius of 14, and the last one a radius of 6. Thus, the last gear would
    rotate twice as fast as the first one. In this case, pegs would be [4, 30, 50] and answer(pegs) should return [12, 1].
@@ -44,8 +46,6 @@ public class gearsFoobar
     {
         int[] pegs = {4, 30, 50};
         int[] pegs2 = {12, 54, 84, 108};
-        // int[] pegs3 = {12, 54, 83, 95};
-//       int[] pegs4 = {12, 54, 83, 96};
         int[] pegs5 = {12, 54, 84, 106};
         int[] pegs6 = {12, 54, 84, 107};
         int[] pegs7 = {12, 54, 84, 108};
@@ -174,3 +174,8 @@ public class gearsFoobar
     }
 }
 
+/* Similar solutions (Python)
+https://www.quora.com/How-do-you-solve-Googles-foo-bar-coding-problem-Gearing-Up-for-Destruction
+https://gist.github.com/jlacar/e66cd25bac47fab887bffbc5e924c2f5
+https://stackoverflow.com/questions/40465866/google-foobar-gearing-up-for-destruction
+*/
