@@ -1,0 +1,21 @@
+E:\NEIU 2017\CS 335- Artificial Inteligence\Projects\8_puzzle\8_puzzle\bin\Debug\8_puzzle.exe.config
+D:\NEIU 2017\CS 335- Artificial Inteligence\Projects\8_puzzle\8_puzzle\obj\Debug\8_puzzle.csprojResolveAssemblyReference.cache
+D:\NEIU 2017\CS 335- Artificial Inteligence\Projects\8_puzzle\8_puzzle\obj\Debug\8_puzzle.csproj.CoreCompileInputs.cache
+D:\NEIU 2017\CS 335- Artificial Inteligence\Projects\8_puzzle\8_puzzle\bin\Debug\8_puzzle.exe.config
+D:\NEIU 2017\CS 335- Artificial Inteligence\Projects\8_puzzle\8_puzzle\bin\Debug\8_puzzle.exe
+D:\NEIU 2017\CS 335- Artificial Inteligence\Projects\8_puzzle\8_puzzle\bin\Debug\8_puzzle.pdb
+D:\NEIU 2017\CS 335- Artificial Inteligence\Projects\8_puzzle\8_puzzle\obj\Debug\8_puzzle.exe
+D:\NEIU 2017\CS 335- Artificial Inteligence\Projects\8_puzzle\8_puzzle\obj\Debug\8_puzzle.pdb
+E:\NEIU 2017\CS 335- Artificial Inteligence\Projects\8_puzzle\8_puzzle\obj\Debug\8_puzzle.exe
+E:\NEIU 2017\CS 335- Artificial Inteligence\Projects\8_puzzle\8_puzzle\obj\Debug\8_puzzle.pdb
+I:\NEIU 2017\CS 335- Artificial Inteligence\Projects\8_puzzle\8_puzzle\obj\Debug\8_puzzle.csprojResolveAssemblyReference.cache
+I:\NEIU 2017\CS 335- Artificial Inteligence\Projects\8_puzzle\8_puzzle\obj\Debug\8_puzzle.csproj.CoreCompileInputs.cache
+I:\NEIU 2017\CS 335- Artificial Inteligence\Projects\8_puzzle\8_puzzle\obj\Debug\8_puzzle.exe
+I:\NEIU 2017\CS 335- Artificial Inteligence\Projects\8_puzzle\8_puzzle\obj\Debug\8_puzzle.pdb
+I:\NEIU 2017\CS 335- Artificial Inteligence\Projects\8_puzzle\8_puzzle\bin\Debug\8_puzzle.exe.config
+I:\NEIU 2017\CS 335- Artificial Inteligence\Projects\8_puzzle\8_puzzle\bin\Debug\8_puzzle.exe
+I:\NEIU 2017\CS 335- Artificial Inteligence\Projects\8_puzzle\8_puzzle\bin\Debug\8_puzzle.pdb
+C:\Users\Claudiu Moise\Documents\GitHub\snippets2\2017work\AI Projects\8_puzzle\8_puzzle\obj\Debug\8_puzzle.csprojResolveAssemblyReference.cache
+C:\Users\Claudiu Moise\Documents\GitHub\snippets2\2017work\AI Projects\8_puzzle\8_puzzle\obj\Debug\8_puzzle.csproj.CoreCompileInputs.cache
+C:\Users\Claudiu Moise\Documents\GitHub\snippets2\2017work\AI Projects\8_puzzle\8_puzzle\obj\Debug\8_puzzle.exe
+C:\Users\Claudiu Moise\Documents\GitHub\snippets2\2017work\AI Projects\8_puzzle\8_puzzle\obj\Debug\8_puzzle.pdb

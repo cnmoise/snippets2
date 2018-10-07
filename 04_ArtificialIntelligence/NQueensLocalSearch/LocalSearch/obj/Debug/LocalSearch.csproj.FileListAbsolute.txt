@@ -1,0 +1,13 @@
+E:\NEIU 2017\CS 335- Artificial Inteligence\Projects\LocalSearch\LocalSearch\bin\Debug\LocalSearch.exe.config
+E:\NEIU 2017\CS 335- Artificial Inteligence\Projects\LocalSearch\LocalSearch\obj\Debug\LocalSearch.csprojResolveAssemblyReference.cache
+E:\NEIU 2017\CS 335- Artificial Inteligence\Projects\LocalSearch\LocalSearch\bin\Debug\LocalSearch.exe
+E:\NEIU 2017\CS 335- Artificial Inteligence\Projects\LocalSearch\LocalSearch\bin\Debug\LocalSearch.pdb
+E:\NEIU 2017\CS 335- Artificial Inteligence\Projects\LocalSearch\LocalSearch\obj\Debug\LocalSearch.exe
+E:\NEIU 2017\CS 335- Artificial Inteligence\Projects\LocalSearch\LocalSearch\obj\Debug\LocalSearch.pdb
+C:\Users\Claudiu Moise\Documents\GitHub\snippets2\2017work\AI Projects\LocalSearch\LocalSearch\bin\Debug\LocalSearch.exe.config
+C:\Users\Claudiu Moise\Documents\GitHub\snippets2\2017work\AI Projects\LocalSearch\LocalSearch\bin\Debug\LocalSearch.exe
+C:\Users\Claudiu Moise\Documents\GitHub\snippets2\2017work\AI Projects\LocalSearch\LocalSearch\bin\Debug\LocalSearch.pdb
+C:\Users\Claudiu Moise\Documents\GitHub\snippets2\2017work\AI Projects\LocalSearch\LocalSearch\obj\Debug\LocalSearch.csprojResolveAssemblyReference.cache
+C:\Users\Claudiu Moise\Documents\GitHub\snippets2\2017work\AI Projects\LocalSearch\LocalSearch\obj\Debug\LocalSearch.csproj.CoreCompileInputs.cache
+C:\Users\Claudiu Moise\Documents\GitHub\snippets2\2017work\AI Projects\LocalSearch\LocalSearch\obj\Debug\LocalSearch.exe
+C:\Users\Claudiu Moise\Documents\GitHub\snippets2\2017work\AI Projects\LocalSearch\LocalSearch\obj\Debug\LocalSearch.pdb
