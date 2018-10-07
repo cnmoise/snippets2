@@ -1,0 +1,49 @@
+Your team has just been hired as the network and security
+administrators of cyber systems that work in conjunction with the
+production and delivery of natural gas infrastructure for the
+Natural Gas Demand Corporation (NGDC). NGDC is the nation’s only
+start-to-finish
+natural
+gas
+production,
+transmission,
+and
+distribution company. NGDC handles all aspects of this highly
+valued product from extracting the raw gas resources, processing,
+transportation, and distribution to residential, commercial,
+industrial, and electric power consumers. NGDC recently has been
+hit with multiple “minor” cyber attacks against their pipeline
+transmission infrastructure and have not successfully been able to
+review, update, or patch their systems with appropriate mitigation
+solutions without having to stop all operations. These attacks
+were assumed to be achieved by the hacker organization known as
+RedCrew. The motivation was a protest about the newly appointed
+distributer: GREENEnergy. NGDC has hired you and your team as
+subject matter experts help secure this network and has requested
+that you secure their user supply and marketing portal
+(distribution)
+network.
+These
+two
+networks
+require
+high
+availability and should not be taken offline for any reason unless
+dictated by the Chief Executive Officer – Ronald Variable.
+Unfortunately, there has not been a solid security team at NGDC in
+about three years and the network architecture drawings and
+operational technology (OT) topology are largely out of date.
+Additionally, NGDC is requesting that a new File-Sharing client
+and IT communications be set up to allow customers and NGDC to be
+able to interact without utilizing credentials. The current system
+is broken and has no authentication measures. There has been little
+or no funding provided for this task until you as a team can
+demonstrate your capabilities to resolve their issues. This means
+that you and your team must secure these complex IT and OT systems
+utilizing free or open-source materials and best practices while
+maintaining full functionality for the company operators and the
+end users.
+
+http://docdroid.net/tcALxGp
+
+

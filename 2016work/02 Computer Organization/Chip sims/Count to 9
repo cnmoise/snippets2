@@ -1,8 +1,0 @@
-mvi a, 00
-mvi c, 03
-mvi b, 09; counter, necessary to implement any loops
-L1: inr a
-dcr c
-dcr b;only knows this if they are right next to eachothers, only reads from the one right above it
-jnz L1
-hlt

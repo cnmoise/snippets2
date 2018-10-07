@@ -1,8 +1,0 @@
-L: mvi a, 00
-mvi b, 03
-L0: inr a
-dcr b
-jnz L0
-L1: dcr a
-jnz L1
-jmp L
