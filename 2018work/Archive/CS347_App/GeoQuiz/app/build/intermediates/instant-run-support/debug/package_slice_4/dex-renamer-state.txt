@@ -1,4 +1,0 @@
-#Mon Jan 22 15:06:58 CST 2018
-base.0=C\:\\Users\\Claudiu Moise\\Documents\\GitHub\\snippets\\2018work\\CS347_App\\GeoQuiz\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\42
-path.0=classes.dex
-renamed.0=classes.dex
