@@ -1,5 +1,5 @@
 // Sorting and searching algorithm implementations
-// Xiwei Wang -Claude Edit
+// Claudiu Moise
 
 import java.util.*;
 
@@ -169,6 +169,8 @@ public class SortingSearchingAlgs
         return last;
     }
     
+        
+
     // recursive helper method for quickSort
     public static void quickSortRec(int[] numArray, int first, int last)
     {
