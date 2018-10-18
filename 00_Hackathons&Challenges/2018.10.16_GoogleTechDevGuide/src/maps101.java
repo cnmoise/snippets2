@@ -9,7 +9,7 @@ public class maps101
     *
     * // Make a new empty map
     Map<String, String> map = new HashMap<String, String>();
-    map.get(key) -- retrieves the stored value for a key,or null if that key is not present in the map.
+    map.get(key) -- retrieves the !!!!stored value!!!! for a key,or null if that key is not present in the map.
 
     map.put(key, value) -- stores a new key/value pair in the map. Overwrites any existing value for that key.
 
