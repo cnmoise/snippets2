@@ -17,6 +17,9 @@ class Edge
 class Graph
 {
     // An array of Lists to represent adjacency list
+    // method 2 of implementing Adj property
+        //actually a matrix
+        //nodes don't store their neighbors, this "table" does
     List<List<Integer>> adjList = null;
 
     // Constructor
@@ -46,7 +49,7 @@ class BFS
     public static void BFS(Graph graph, int v, boolean[] discovered)
     {
         // create a queue used to do BFS
-        Queue<Integer> q = new ArrayDeque<>();
+        Queue<Integer> q = new LinkedList<>();
 
         // mark source vertex as discovered
         discovered[v] = true;
@@ -62,6 +65,8 @@ class BFS
             System.out.print(v + " ");
 
             // do for every edge (v -> u)
+            // gets all the connections/edges of node v
+            // adds them to the que to be dequed
             for (int u : graph.adjList.get(v)) {
                 if (!discovered[u]) {
                     // mark it discovered and push it into queue

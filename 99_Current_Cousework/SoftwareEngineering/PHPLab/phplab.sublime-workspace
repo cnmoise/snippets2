@@ -1,0 +1,579 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"pro",
+				"propertyforrent"
+			],
+			[
+				"com",
+				"comment"
+			],
+			[
+				"or",
+				"OR"
+			],
+			[
+				"c",
+				"count"
+			],
+			[
+				"pr",
+				"propertyNo"
+			],
+			[
+				"cli",
+				"clientNo"
+			],
+			[
+				"fa",
+				"facility"
+			],
+			[
+				"fac",
+				"facid"
+			],
+			[
+				"from",
+				"FROM"
+			],
+			[
+				"re",
+				"recommendedby"
+			],
+			[
+				"mem",
+				"memid"
+			],
+			[
+				"st",
+				"staff"
+			],
+			[
+				"staff",
+				"staff"
+			],
+			[
+				"prope",
+				"propertyNo"
+			],
+			[
+				"prop",
+				"propertyNo"
+			],
+			[
+				"on",
+				"ON"
+			],
+			[
+				"F",
+				"FROM"
+			],
+			[
+				"l",
+				"lName"
+			],
+			[
+				"al",
+				"Aline"
+			],
+			[
+				"staf",
+				"staffNo"
+			],
+			[
+				"bran",
+				"branchNo"
+			],
+			[
+				"s",
+				"s"
+			],
+			[
+				"br",
+				"branch"
+			],
+			[
+				"owner",
+				"ownerNo"
+			],
+			[
+				"And",
+				"AND"
+			],
+			[
+				"cus",
+				"customer_id"
+			],
+			[
+				"f",
+				"FROM"
+			],
+			[
+				"sa",
+				"salesman_id"
+			],
+			[
+				"Pa",
+				"Paris"
+			],
+			[
+				"purh",
+				"purch_amt"
+			],
+			[
+				"ord",
+				"ord_date"
+			],
+			[
+				"cu",
+				"customer_id"
+			],
+			[
+				"b",
+				"BY"
+			],
+			[
+				"sal",
+				"salesman_id"
+			],
+			[
+				"co",
+				"courseName"
+			],
+			[
+				"min",
+				"min-height"
+			],
+			[
+				"text-a",
+				"text-align"
+			],
+			[
+				"inlin",
+				"inline-block"
+			],
+			[
+				"ali",
+				"align-items"
+			],
+			[
+				"capti",
+				"caption"
+			],
+			[
+				"Univers",
+				"University"
+			],
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"d",
+				"display"
+			],
+			[
+				"ge",
+				"getElementById"
+			],
+			[
+				"rand",
+				"randStr"
+			],
+			[
+				"ran",
+				"randStr"
+			],
+			[
+				"pa",
+				"padding-left"
+			],
+			[
+				"p",
+				"padding"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"a",
+				"auto"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"image",
+				"images"
+			],
+			[
+				"w",
+				"width"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "sticky-footer-navbar.css",
+			"settings":
+			{
+				"buffer_size": 677,
+				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "/* Sticky footer styles"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "enco",
+		"selected_items":
+		[
+			[
+				"enco",
+				"HTML: Encode Special Characters"
+			],
+			[
+				"update",
+				"Emmet: Update Image Size"
+			],
+			[
+				"ima",
+				"Emmet: Update Image Size"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Snippet: ",
+				"Snippet: html"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"enc",
+				"HTML: Encode Special Characters"
+			]
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 130.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/00_Hackathons&Challenges/2018.10.12_GoogleInterviewSeries/GoogleInterviewSeriesJava/src/HashsetPermutations.java",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/01_Java/Java_Practice/00Leetcode_Java/2018.09.24_FizzBuzzUsingList/FizzBuzzV2.java",
+		"/C/Users/Claudiu Moise/Desktop/PHPLab/New Text Document.txt",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/01_Java/Java_Practice/HackerRank Java/2018.10.17_LinkedListMiddleInsert.java",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/00_Hackathons&Challenges/google_foobar/Prison/solution.java",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/00_Hackathons&Challenges/GoogleInterviewSeries/2018.10.12_IntegerDivisionFrogs.java",
+		"/C/Users/Claudiu Moise/Desktop/resume.save.json",
+		"/C/Users/Claudiu Moise/Documents/GitHub/inventory_management_simulator/RPGtracker-2.sql",
+		"/I/Honors PHP Files/PostQuestionMusic.php",
+		"/I/Honors PHP Files/PostQuestionNoMusic.php",
+		"/I/Honors PHP Files/color.php",
+		"/I/Honors PHP Files/math.php",
+		"/I/Honors PHP Files/memory.php",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/01_Java/Java_Practice/00Leetcode_Java/00SimpleExercises/2018.10.07_mergeTwoLLs.java",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/01_Java/Java_Practice/00Leetcode_Java/Stack Parentheses.java",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/Plaintext vs Json",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/01_Java/Java_Practice/00Leetcode_Java/00SimpleExercises/2018.10.07_romanToInt",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/01_Java/Java_Practice/00Leetcode_Java/00SimpleExercises/deleteMiddleLLNode.java",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/2018work/foobar/Gears/gearsFoobar.java",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/2018work/Archive/CS307_Python/foobar/pythonfoo.txt",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/2016work/03 Data Structures/Practice Code/07 SortingAlgs_1115/SortingSearchingAlgs.java",
+		"/C/Users/Claudiu Moise/Desktop/backup3",
+		"/C/Users/Claudiu Moise/Desktop/ba5",
+		"/C/Users/Claudiu Moise/Desktop/ba4",
+		"/C/Users/Claudiu Moise/Desktop/Prison Labor Dodgers",
+		"/C/Users/Claudiu Moise/Desktop/CDC-Scenario_redacted_2018 (2nd Clue).txt",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/2018work/Independent_Work/Java_Practice/Leetcode/codescraps.java",
+		"/C/Users/Claudiu Moise/Documents/GitHub/personal_web_site/css/main.css",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/2018work/Independent_Work/Java_Practice/GraphTraversal/MyGraphTraversal.java",
+		"/C/Users/Claudiu Moise/Desktop/pars duorum.pdf - DocDroid.html",
+		"/C/Users/Claudiu Moise/Desktop/CDC-Scenario_redacted_2018.pdf",
+		"/C/Users/Claudiu Moise/Documents/GitHub/personal_web_site/index.html",
+		"/C/Users/Claudiu Moise/Desktop/hello.java",
+		"/C/Users/Claudiu Moise/Desktop/Bfs.java",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/2018work/Summer/Android/momapp/.gitignore",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/2018work/Summer/Android/momapp/app/src/main/res/layout/ac_new_preset2.xml",
+		"/C/Users/Claudiu Moise/Documents/GitHub/inventory_management_simulator/items.php",
+		"/C/Users/Claudiu Moise/Documents/GitHub/inventory_management_simulator/characters.php",
+		"/C/Users/Claudiu Moise/Documents/GitHub/inventory_management_simulator/comparison2.php",
+		"/C/Users/Claudiu Moise/Documents/GitHub/inventory_management_simulator/home.php",
+		"/C/Users/Claudiu Moise/Documents/GitHub/inventory_management_simulator/RPGservices.php",
+		"/C/Users/Claudiu Moise/Documents/GitHub/inventory_management_simulator/sql/tempSQL.sql",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/2018work/Independent_Work/Bash_Practice/hackerrank_exercises_04_24_2018",
+		"/C/Users/Claudiu Moise/Desktop/wat.txt",
+		"/C/Users/Claudiu Moise/Documents/GitHub/portfolio/code_higlights/homesite/css/main.css",
+		"/C/Users/Claudiu Moise/Documents/GitHub/portfolio/homesite/css/main.css",
+		"/C/Users/Claudiu Moise/Documents/GitHub/portfolio/homesite/index.html",
+		"/C/Users/Claudiu Moise/Documents/GitHub/GMC_projects2/Color Shooter/Temp/UnityLockfile",
+		"/C/Users/Claudiu Moise/Documents/GitHub/portfolio/homesite2/index.html",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/2017work/CS 300 - Clientside Web Dev/bootstraptesting/gamemakerclub.html",
+		"/C/Users/Claudiu Moise/Documents/GitHub/portfolio/homesite2/css/main.css",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/2018work/CS315_DB/01wampphplab/firstphp.php",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/2018work/CS315_DB/00firstphpapp/additem.php",
+		"/C/Users/Claudiu Moise/Documents/GitHub/portfolio/homesite/js/tricks.js",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/2018work/CS315_DB/00firstphpapp/index.php",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/2017work/CS 300 - Clientside Web Dev/bootstraptesting/inspiration.html",
+		"/I/Programming Archives/CS 300 - Clientside Web Dev/htmlcheatsheet.html",
+		"/I/Programming Archives/CS 300 - Clientside Web Dev/jscheatsheet.js",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/2017work/CS 300 - Clientside Web Dev/bootstraptesting/css/inspo.css",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/2017work/CS 300 - Clientside Web Dev/bootstraptesting/css/gmcstylemain.css",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/2017work/CS 300 - Clientside Web Dev/bootstraptesting/css/vidgal.css",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/2017work/secondwebsite/js/tricks.js",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/2017work/secondwebsite/index.html",
+		"/C/Users/Claudiu Moise/Documents/GitHub/portfolio/homesite/careers.html",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/2017work/secondwebsite/about.html",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/2017work/secondwebsite/css/main.css",
+		"/C/Users/Claudiu Moise/Documents/GitHub/portfolio/homesite/billboard.html",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/2017work/firstwebsite/css/mainstyle2.css",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/2017work/firstwebsite/css/mainstyle.css",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/2017work/firstwebsite/colorcyan.html",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/2017work/firstwebsite/mytemplate.html",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/2017work/firstwebsite/intro.html",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/2017work/firstwebsite/colorchart.html",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/2017work/INF403/TP Files/tp3/req.sql",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/2018work/CS315_DB/03midtermpractice/online_questions.sql",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/2018work/CS315_DB/03midtermpractice/dreamhome_practice.sql",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/2018work/CS315_DB/02sqllab/CS_315_SQL_Exercises.sql",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/2018work/CS315_DB/02sqllab/sqlqueries.sql",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/2018work/CS315_DB/03midtermpractice/midterm.sql",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/2018work/CS315_DB/02sqllab/sqlmidtermpractice.sql",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/2018work/CS315_DB/00firstphpapp/items.txt",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/2016work/INF403/TP Files/tp45/conf.sql",
+		"/C/Users/Claudiu Moise/Documents/GitHub/snippets2/2016work/INF403/TP Files/tp45/adv.sql",
+		"/C/Users/Claudiu Moise/Desktop/Game Pitch Template/GamePitchTemplate.html",
+		"/F/Professional/02. School/04 NEIU 2017-2018/ScarletHacks/homepage.html",
+		"/I/Independent Studies/JS Practice/jspractice.html",
+		"/I/Independent Studies/JS Practice/practice.js",
+		"/C/Users/Claudiu Moise/Desktop/acme_website/acme/about.html",
+		"/C/Users/Claudiu Moise/Desktop/acme_website/acme/services.html",
+		"/C/Users/Claudiu Moise/Desktop/acme_website/acme/index.html",
+		"/I/Sublime Practice/dtf.html",
+		"/F/Professional/02. School/04 NEIU 2017-2018/ScarletHacks/enterinfo.html",
+		"/F/Professional/02. School/04 NEIU 2017-2018/ScarletHacks/about.html",
+		"/F/Professional/02. School/04 NEIU 2017-2018/ScarletHacks/js/first.js",
+		"/I/Programming Archives/CS 300 - Clientside Web Dev/cs300Project2/css/main.css",
+		"/I/NEIU 2018/Programming Languages - CS 307 (LWH 3050)/Session_2.py",
+		"/C/Users/Claudiu Moise/Documents/GitHub/portfolio/homesite/about.html",
+		"/I/Sublime Practice/dtf",
+		"/C/Users/Claudiu Moise/Documents/GitHub/portfolio/homesite/template.html",
+		"/I/Programming Archives/CS 300 - Clientside Web Dev/cs300Project2/template.html"
+	],
+	"find":
+	{
+		"height": 32.0
+	},
+	"find_in_files":
+	{
+		"height": 104.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "sticky-footer-navbar.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 677,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								657,
+								657
+							]
+						],
+						"settings":
+						{
+							"auto_name": "/* Sticky footer styles",
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 22.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 32.0
+	},
+	"input":
+	{
+		"height": 38.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 562.0
+	},
+	"pinned_build_system": "",
+	"project": "",
+	"replace":
+	{
+		"height": 60.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"m",
+				"css\\main.css"
+			],
+			[
+				"inde",
+				"index.html"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 199.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
