@@ -13,8 +13,8 @@ public class sumNumbers {
         //TODO better way of resolving off by 1 error
         char we;
         String ll ="";
-        int sum = 0;
         char[] bang = str.toCharArray();
+        int ok = 0;
 
         for(int i = 0; i < str.length(); i++) {
             if (Character.isDigit(str.charAt(i))){
@@ -27,13 +27,13 @@ public class sumNumbers {
                 if (i == str.length()-1){
                     ll += str.charAt(i);
                 }
-                sum += Integer.parseInt(ll);
+                ok += Integer.parseInt(ll);
                 ll="";
 //                i--;
             }
 
         }
 
-        return sum;
+        return ok;
     }
 }

@@ -28,6 +28,7 @@ public class maxSpan {
             return 0;
         }
 
+        //finds first occurences and last occurences of each number
         for(int fp =0; fp < nums.length; fp++){
             for(int sp = fp; sp < nums.length; sp++){
                 if(nums[fp] == nums[sp]){
@@ -40,6 +41,7 @@ public class maxSpan {
             }
         }
 
+        //difference between start and end is the span of each element
         int possMax = spanTrack[0][1] - spanTrack[0][0] +1;
         int prevMax = possMax;
         for(int kek = 0; kek < spanTrack.length; kek++){
