@@ -120,6 +120,7 @@ class Edge
 class Graph
 {
     // An array of Lists to represent adjacency list
+    // a list of nodes adjacent to that node
     List<List<Integer>> adjList = null;
 
     // Constructor
