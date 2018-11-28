@@ -3,28 +3,39 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using BethanysPieShop2.Models;
-using BethanysPieShop2.Models.ViewModels;
+using TeamDLCFoodShop.Models;
+using TeamDLCFoodShop.Models.ViewModels;
 
-namespace BethanysPieShop2.Controllers
+namespace TeamDLCFoodShop.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IPieRepository _pieRepository;
+        private readonly IFoodRepository _foodRepository;
+
+
+        public HomeController(IFoodRepository foodRepository)
+        {
+            _foodRepository = foodRepository;
+        }
 
         public IActionResult Index()
-        { //ViewBag.Title = "Pie overiew"; //Remove to add HomeViewModel
-            var pies = _pieRepository.GetAllPies().OrderBy(p => p.Name);
+        { //ViewBag.Title = "Food overiew"; //Remove to add HomeViewModel
+            var foods = _foodRepository.GetAllFoods().OrderBy(p => p.Name);
             var homeViewModel = new HomeViewModel()
             {
-                Title = "Welcome to Bethany's Pie Shop", //note: comma
-                Pies = pies.ToList() //note: no semicolon here
+                Title = "Welcome to Team DLC's Food Shop", //note: comma
+                Foods = foods.ToList() //note: no semicolon here
             }; //note: semicolon here
             return View(homeViewModel);
         }
 
-        public HomeController(IPieRepository pieRepository) {
-            _pieRepository = pieRepository;
+        public IActionResult Details(int id)
+        {
+            var food = _foodRepository.GetFoodById(id);
+            if (food == null)
+                return NotFound();
+
+            return View(food);
         }
     }
 }

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BethanysPieShop2.Models.ViewModels
+namespace TeamDLCFoodShop.Models.ViewModels
 {
     public class HomeViewModel
     {
         public string Title { get; set; }
-        public List<Pie> Pies { get; set; }
+        public List<Food> Foods { get; set; }
     }
 }

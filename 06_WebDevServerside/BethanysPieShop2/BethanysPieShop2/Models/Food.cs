@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BethanysPieShop2.Models
+namespace TeamDLCFoodShop.Models
 {
-    public class Pie
+    public class Food
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -14,7 +14,7 @@ namespace BethanysPieShop2.Models
         public decimal Price { get; set; }
         public string ImageUrl { get; set; }
         public string ImageThumbnailUrl { get; set; }
-        public bool IsPieOfTheWeek { get; set; }
+        public bool IsFoodOfTheWeek { get; set; }
         public bool IsInStock { get; set; }
     }
 }

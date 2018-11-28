@@ -6,19 +6,42 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using TeamDLCFoodShop.Models;
 
-namespace BethanysPieShop2
+namespace TeamDLCFoodShop
 {
     public class Program
     {
         public static void Main(string[] args)
         {
-            CreateWebHostBuilder(args).Build().Run();
+            var host = BuildWebHost(args);
+
+            using (var scope = host.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                try
+                {
+                    var context = services.GetRequiredService<Models.AppDbContext>();
+                    DbInitializer.Seed(context);
+                }
+                catch (Exception)
+                {
+                    //we could log this in a real-world situation
+                }
+            }
+
+            host.Run();
+
+            //BuildWebHost(args).Run();
+
         }
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+                .UseStartup<Startup>()
+                .Build();
     }
 }
+

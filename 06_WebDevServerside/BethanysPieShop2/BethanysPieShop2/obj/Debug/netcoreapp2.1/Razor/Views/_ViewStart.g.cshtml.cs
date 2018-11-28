@@ -13,7 +13,18 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
+#line 1 "D:\ProgrammingAll\snippets2\06_WebDevServerside\BethanysPieShop2\BethanysPieShop2\Views\_ViewImports.cshtml"
+using TeamDLCFoodShop.Models;
+
+#line default
+#line hidden
+#line 2 "D:\ProgrammingAll\snippets2\06_WebDevServerside\BethanysPieShop2\BethanysPieShop2\Views\_ViewImports.cshtml"
+using TeamDLCFoodShop.Models.ViewModels;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7091c65830b0329e613be026ede8a57552863778", @"/Views/_ViewStart.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8d6d8e70c3046c45da4026d6219d5693cae56c3e", @"/Views/_ViewImports.cshtml")]
     public class Views__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

@@ -12231,9 +12231,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\ProgrammingAll\\snippets2\\06_WebDevServerside\\BethanysPieShop2\\BethanysPieShop2\\BethanysPieShop2.csproj",
-      "projectName": "BethanysPieShop2",
-      "projectPath": "D:\\ProgrammingAll\\snippets2\\06_WebDevServerside\\BethanysPieShop2\\BethanysPieShop2\\BethanysPieShop2.csproj",
+      "projectUniqueName": "D:\\ProgrammingAll\\snippets2\\06_WebDevServerside\\BethanysPieShop2\\BethanysPieShop2\\TeamDLCFoodShop.csproj",
+      "projectName": "TeamDLCFoodShop",
+      "projectPath": "D:\\ProgrammingAll\\snippets2\\06_WebDevServerside\\BethanysPieShop2\\BethanysPieShop2\\TeamDLCFoodShop.csproj",
       "packagesPath": "C:\\Users\\claud\\.nuget\\packages\\",
       "outputPath": "D:\\ProgrammingAll\\snippets2\\06_WebDevServerside\\BethanysPieShop2\\BethanysPieShop2\\obj\\",
       "projectStyle": "PackageReference",
