@@ -5,10 +5,10 @@
 
 //put this folder in a safe place to prevent others from using it
 
-define('DB_USER', 'username');
-define('DB_PASSWORD', 'password');
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'sitename');
+define('DB_USER', 'cs319_1_fall2018_group2');
+define('DB_PASSWORD', 'cs319Vq@@Qs');
+define('DB_HOST', 'http://cs.neiu.edu');
+define('DB_NAME', 'cs319_1_fall2018_group2_db');
 
 //handling with an OR clause
 //if 1st part is false so the second must be true

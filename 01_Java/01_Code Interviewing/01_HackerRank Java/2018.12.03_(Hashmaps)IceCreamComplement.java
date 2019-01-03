@@ -1,5 +1,6 @@
 // https://www.hackerrank.com/challenges/ctci-ice-cream-parlor/problem
 
+//similar to TWOSUM problem in leetcode
 // Complete the whatFlavors function below.
     static void whatFlavors(int[] cost, int money) {
         Map<Integer, Integer> map = new HashMap<Integer, Integer>();

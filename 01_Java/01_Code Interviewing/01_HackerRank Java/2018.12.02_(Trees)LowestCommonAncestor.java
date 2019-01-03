@@ -13,6 +13,7 @@
         // return null;
 
 
+        //BST
         //The value of a common ancestor has to always be 
         //between the two values in question.
 

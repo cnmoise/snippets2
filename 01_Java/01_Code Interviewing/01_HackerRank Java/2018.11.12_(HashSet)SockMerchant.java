@@ -4,7 +4,7 @@ import java.util.Set;
 public class SockMerchant
 {
     // Author: Claudiu Moise
-    // Source:https://www.hackerrank.com/challenges/sock-merchant/problem?h_l=interview&playlist_slugs%5B%5D%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D%5B%5D=warmup
+    // Source:https://www.hackerrank.com/challenges/sock-merchant/
     
 
     public static void main(String[] args)

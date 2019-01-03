@@ -6,7 +6,10 @@ static DoublyLinkedListNode reverse(DoublyLinkedListNode head) {
             cur = cur.next;
         }
 
-        //instead of fucking with re-arranging all my previous and next pointers to do the reverse "in place" we make a new DLL and just insert nodes starting at the end of the first list and then backtracking
+        //instead of re-arranging all my previous and next 
+        //pointers to do the reverse "in place"
+        //we make a new DLL and just insert nodes starting at the
+        //end of the first list and then backtracking
         DoublyLinkedList newDLL = new DoublyLinkedList();
         newDLL.insertNode(cur.data);
 

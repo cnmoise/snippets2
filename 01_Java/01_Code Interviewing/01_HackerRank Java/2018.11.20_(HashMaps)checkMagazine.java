@@ -1,6 +1,8 @@
-// https://www.hackerrank.com/challenges/ctci-ransom-note/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=dictionaries-hashmaps
+//https://www.hackerrank.com/challenges/ctci-ransom-note/problem
 
-HashMap <String, Integer> magm = new HashMap();
+static void checkMagazine(String[] magazine, String[] note) {
+
+        HashMap <String, Integer> magm = new HashMap();
         boolean hasAllWords = true;
         
         //populate magazine
@@ -32,3 +34,4 @@ HashMap <String, Integer> magm = new HashMap();
             System.out.println("Yes");
         else
             System.out.println("No");
+    }
